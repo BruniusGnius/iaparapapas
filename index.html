@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth overflow-x-hidden">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA para Papás | Gnius Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Saira:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue-main': '#1F6FEB',
+                        'brand-blue-deep': '#0F2E6D',
+                        'brand-purple': '#8B5CF6',
+                        'brand-purple-deep': '#6D28D9',
+                        'brand-lavender': '#C4B5FD',
+                        'brand-danger': '#EF4444',
+                        'brand-success': '#10B981',
+                    },
+                    fontFamily: {
+                        'sans': ['Saira', 'sans-serif'],
+                        'display': ['Saira Semi Condensed', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Animación del Shake de la Píldora */
+        @keyframes alarm-shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            20% {
+                transform: translateX(-1px);
+            }
+
+            15%,
+            25% {
+                transform: translateX(1px);
+            }
+        }
+
+        .animate-urgency {
+            animation: alarm-shake 3s ease-in-out infinite;
+        }
+
+        /* Efecto Patrulla Discreto: Oscilación de opacidad entre Azul y Rojo */
+        @keyframes patrol-blue {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.1;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes patrol-red {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1.05);
+            }
+
+            50% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+        }
+
+        .animate-patrol-blue {
+            animation: patrol-blue 4s ease-in-out infinite;
+        }
+
+        .animate-patrol-red {
+            animation: patrol-red 4s ease-in-out infinite;
+        }
+
+        /* Textura de Ruido */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 antialiased font-sans font-medium overflow-x-hidden">
+
+    <!-- NAV BAR STICKY -->
+    <nav x-data="{ open: false }"
+        class="sticky top-0 z-[100] w-full max-w-full overflow-x-hidden bg-gradient-to-r from-brand-purple via-brand-blue-main to-brand-purple shadow-xl border-b border-white/10 text-white font-sans">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <img src="/assets/ia-para-papas-logo-blanco.png" alt="IA para Papás" class="h-16 w-auto">
+                </div>
+
+                <!-- MENU: Estilo Digizen B2B (text-xs + tracking-widest) -->
+                <div class="hidden lg:flex items-center gap-10">
+                    <a href="#riesgo"
+                        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-brand-lavender transition-all opacity-90">El
+                        Riesgo</a>
+                    <a href="#experto"
+                        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-brand-lavender transition-all opacity-90">Experto</a>
+                    <a href="#metodo"
+                        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-brand-lavender transition-all opacity-90">El
+                        Método</a>
+                    <a href="#programa"
+                        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-brand-lavender transition-all opacity-90">Programa</a>
+                    <a href="#faq"
+                        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-brand-lavender transition-all opacity-90">FAQ</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="#precio"
+                        class="bg-white text-brand-blue-deep px-8 py-2.5 rounded-full font-bold text-xs tracking-widest hover:scale-105 transition-all shadow-xl">
+                        RESERVAR LUGAR
+                    </a>
+                </div>
+
+                <button @click="open = !open" class="lg:hidden p-2 bg-white/10 rounded-lg">
+                    <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div x-show="open" x-transition class="lg:hidden bg-brand-purple-deep px-6 py-8 space-y-5">
+            <a href="#riesgo" @click="open = false" class="block text-xl font-bold border-b border-white/10 pb-2">El
+                Riesgo</a>
+            <a href="#experto" @click="open = false"
+                class="block text-xl font-bold border-b border-white/10 pb-2">Experto</a>
+            <a href="#metodo" @click="open = false" class="block text-xl font-bold border-b border-white/10 pb-2">El
+                Método</a>
+            <a href="#programa" @click="open = false"
+                class="block text-xl font-bold border-b border-white/10 pb-2">Programa</a>
+            <a href="#inversion" @click="open = false"
+                class="block bg-white text-brand-blue-deep text-center py-4 rounded-xl font-bold text-xl shadow-xl">RESERVAR
+                LUGAR</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO / TENSIÓN DISCRETA (Patrol Effect + Noise) -->
+    <section class="relative bg-[#050B1A] text-white overflow-hidden w-full border-b border-white/5">
+
+        <!-- LUCES DE PATRULLA: Azul vs Rojo Oscuro (Sin afectar contenido) -->
+        <div
+            class="absolute top-[-20%] left-[-10%] w-[1000px] h-[700px] bg-brand-blue-main rounded-full blur-[130px] animate-patrol-blue pointer-events-none z-0">
+        </div>
+        <div
+            class="absolute top-[-15%] right-[-5%] w-[800px] h-[600px] bg-red-900 rounded-full blur-[130px] animate-patrol-red pointer-events-none z-0">
+        </div>
+
+        <!-- TEXTURA NOISE -->
+        <div class="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none z-0"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch relative z-10">
+
+            <!-- COLUMNA IZQUIERDA: CONTENIDO (7 de 12) -->
+            <div class="lg:col-span-7 flex flex-col justify-center px-6 lg:px-6 py-12 lg:py-20 md:px-8 xl:px-12">
+
+                <!-- 1. CABECERA: Bold 700 + Interlineado 1.6 + Naranja SIN SOMBRA -->
+                <h1
+                    class="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.6] tracking-tight text-center lg:text-left">
+                    <span class="block mb-2 text-white/95">La IA ya educa a tus hijos.</span>
+                    <span class="text-[#FF8C00] block italic">La pregunta es si&nbsp;tú&nbsp;también.</span>
+                </h1>
+
+                <!-- 2. IMAGEN MÓVIL/TABLET: 16:9 (Visible en < lg) -->
+                <div
+                    class="block lg:hidden my-10 -mx-6 aspect-video overflow-hidden border-y border-white/5 shadow-2xl">
+                    <img src="https://picsum.photos/seed/parenting-tension/1200/675" alt="Tensión digital"
+                        class="w-full h-full object-cover grayscale-[20%] brightness-[0.75]">
+                </div>
+
+                <!-- 3. SUBHEADLINE: Texto Íntegro Restaurado -->
+                <p
+                    class="mt-8 text-lg md:text-xl lg:text-2xl font-medium opacity-80 leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-brand-blue-light">
+                    El primer curso en vivo para padres que quieren recuperar autoridad tranquila en la era de la IA
+                    &mdash;&nbsp;sin&nbsp;alarmismo, sin tecnicismos, con un marco claro que funciona en la vida real.
+                </p>
+
+                <!-- 4. BLOQUE DE ACCIÓN -->
+                <div class="mt-12 flex flex-col items-center lg:items-start gap-6 w-full">
+                    <!-- Botón Degradado 2 Colores -->
+                    <a href="#riesgo"
+                        class="inline-block bg-gradient-to-r from-brand-purple to-brand-blue-main text-white px-12 py-5 rounded-2xl font-display font-bold text-lg md:text-xl uppercase tracking-widest shadow-xl hover:scale-105 transition-all active:scale-95 text-center w-full md:w-auto">
+                        RESERVA TU LUGAR
+                    </a>
+
+                    <!-- Píldora Cupos Limitados (Glassmorphism + Shake) -->
+                    <div
+                        class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-lg animate-urgency">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-danger opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-danger"></span>
+                        </span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-white">Cupos
+                            Limitados</span>
+                    </div>
+                </div>
+
+                <!-- 5. TRUST BADGE: Texto Íntegro -->
+                <div class="mt-20 border-t border-white/10 pt-10 flex justify-center lg:justify-start">
+                    <div
+                        class="flex items-center gap-5 bg-white/[0.03] backdrop-blur-md p-5 pr-10 rounded-2xl border border-white/10 shadow-2xl max-w-fit">
+                        <div class="relative shrink-0">
+                            <div class="absolute inset-0 bg-brand-purple rounded-full blur-md opacity-20"></div>
+                            <img src="https://picsum.photos/seed/expert-rudy/120/120" alt="Rudy Laddaga"
+                                class="relative w-16 h-16 rounded-full border-2 border-brand-lavender/30 object-cover grayscale-[30%] shadow-lg">
+                        </div>
+                        <div class="flex flex-col text-left border-l border-white/10 pl-5 text-white/90">
+                            <p class="text-base md:text-lg font-bold leading-none mb-1 uppercase tracking-tighter">
+                                Por Rudy Laddaga <span class="text-brand-lavender font-medium ml-1">| Gnius Club</span>
+                            </p>
+                            <p class="text-xs md:text-sm font-semibold opacity-70 leading-tight">
+                                Consejo Directivo, World Summit Award - <span class="underline">ONU</span>
+                            </p>
+                            <div class="flex items-center gap-2 mt-2 font-bold opacity-60">
+                                <span class="w-2 h-2 bg-brand-success rounded-full animate-pulse"></span>
+                                <p class="text-[10px] uppercase tracking-widest">Pioneros en IA desde 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: IMAGEN DESKTOP (5 de 12) -->
+            <div class="hidden lg:block lg:col-span-5 relative bg-[#050B1A] border-l border-white/5">
+                <div class="w-full aspect-[2/3] sticky top-0 overflow-hidden">
+                    <img src="https://picsum.photos/seed/night-parent/900/1350" alt="Hero Desktop"
+                        class="w-full h-full object-cover grayscale-[15%] brightness-[0.7] contrast-[1.1]">
+                    <!-- Overlays para integrar con el fondo -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B1A] via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#050B1A]/80 via-transparent to-transparent">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: EL RIESGO -->
+    <section id="riesgo" class="py-24 px-6 bg-white">
+        <div class="container mx-auto max-w-[700px]">
+            <!-- Kicker estilo Digizen -->
+            <span class="text-brand-purple font-bold tracking-[0.25em] text-xs uppercase block mb-4">¿Te suena
+                familiar?</span>
+            <h2 class="font-display text-3xl md:text-5xl font-bold text-brand-blue-deep mb-10 leading-tight">¿Te
+                suena
+                familiar?</h2>
+
+            <div
+                class="prose prose-lg md:prose-xl text-slate-700 italic border-l-4 border-brand-purple pl-8 mb-16 leading-relaxed">
+                Son las 11:47 pm. Teléfono en mano. Acabas de leer otro artículo sobre IA y adolescentes.
+                Cierras el navegador.
+                Te prometes que mañana hablarás con tus hijos sobre "esto".
+                Pero no sabes exactamente qué decir. Ni cómo justificar las reglas que sabes que deberías poner.
+                <strong class="text-brand-blue-main block mt-4 not-italic font-bold">Y esta sensación se
+                    repite.</strong>
+            </div>
+
+            <div class="space-y-8">
+                <h3
+                    class="font-display text-2xl md:text-3xl font-extrabold text-brand-danger uppercase leading-tight italic">
+                    Aquí está la verdad incómoda que nadie dice en voz alta:</h3>
+                <p class="text-xl md:text-2xl leading-relaxed text-slate-800">El problema no es la IA. <br>
+                    <strong class="text-brand-blue-deep font-bold">Es que estás tomando decisiones importantes sobre
+                        la
+                        vida de tus hijos sin un marco claro.</strong>
+                </p>
+
+                <div class="bg-brand-gray-light p-10 rounded-2xl border border-slate-100 shadow-inner">
+                    <p class="text-lg font-bold mb-6 text-brand-blue-main uppercase tracking-wide">Y cuando no
+                        tienes
+                        marco, todo se convierte en improvisación ansiosa:</p>
+                    <ul class="space-y-5 text-lg md:text-xl">
+                        <li class="flex items-start gap-4">
+                            <span class="text-brand-danger text-2xl leading-none">●</span>
+                            <span>Reglas vagas que no puedes sostener</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-brand-danger text-2xl leading-none">●</span>
+                            <span>Conversaciones que terminas evitando</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-brand-danger text-2xl leading-none">●</span>
+                            <span>La sensación silenciosa de que "ya vas tarde"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: EXPERTO -->
+    <section id="experto" class="py-24 bg-brand-gray-light px-6 border-y border-slate-200">
+        <div class="container mx-auto max-w-6xl grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative group">
+                <div
+                    class="absolute -inset-4 bg-brand-purple/20 rounded-3xl blur-xl group-hover:bg-brand-purple/30 transition-all">
+                </div>
+                <img src="https://picsum.photos/seed/expert/800/1000" alt="Rudy Laddaga"
+                    class="relative rounded-2xl shadow-2xl filter grayscale hover:grayscale-0 transition-all duration-700 aspect-[4/5] object-cover">
+                <div class="absolute -bottom-8 -right-8 bg-brand-blue-deep text-white p-8 rounded-2xl shadow-2xl">
+                    <p
+                        class="font-display font-bold text-2xl leading-none mb-1 text-brand-lavender uppercase tracking-widest text-xs">
+                        Experiencia</p>
+                    <p class="text-3xl font-extrabold font-display">Desde 2018</p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <span
+                    class="inline-block px-4 py-1.5 bg-brand-lavender text-brand-purple-deep text-xs font-bold rounded-lg uppercase tracking-[0.2em]">Quién
+                    te está hablando</span>
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-brand-blue-deep leading-tight">Soy
+                    Rudy
+                    Laddaga, <br><span class="text-brand-blue-main font-bold">fundador de Gnius Club.</span></h2>
+                <div class="text-lg md:text-xl text-slate-700 leading-relaxed space-y-6">
+                    <p>He pasado 20 años evaluando el futuro de la educación como miembro del Consejo Directivo del
+                        <strong>World Summit Award de las Naciones Unidas</strong>.
+                    </p>
+                    <p>En 2018, cuando ChatGPT ni siquiera existía, <strong>ya estábamos enseñando IA a niños en
+                            colegios de México.</strong></p>
+                    <p>Este curso no es una reacción al pánico mediático. Es la destilación de años observando cómo
+                        los
+                        niños realmente interactúan con sistemas inteligentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- SECCIÓN 4: EL ENEMIGO REAL -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-4">No es lo que crees</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Errores -->
+                <div class="bg-red-50 p-10 rounded-3xl border border-red-100">
+                    <h3 class="font-display text-xl font-bold text-brand-danger mb-6 uppercase tracking-widest">El
+                        problema no es:</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3">❌ <span>Que tus hijos entiendan más de tecnología que
+                                tú</span></li>
+                        <li class="flex items-center gap-3">❌ <span>Que ChatGPT exista</span></li>
+                        <li class="flex items-center gap-3">❌ <span>Que el mundo esté cambiando rápido</span></li>
+                    </ul>
+                </div>
+                <!-- Realidad -->
+                <div class="bg-brand-blue-light p-10 rounded-3xl border border-brand-blue-main/20">
+                    <h3 class="font-display text-xl font-bold text-brand-blue-main mb-6 uppercase tracking-widest">
+                        El
+                        problema real es:</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3">✓ <span>La improvisación adulta frente a sistemas
+                                diseñados
+                                con intención</span></li>
+                        <li class="flex items-center gap-3">✓ <span>Decidir sin criterio en un momento donde cada
+                                decisión importa</span></li>
+                        <li class="flex items-center gap-3">✓ <span>Delegar, sin darte cuenta, la formación
+                                emocional y
+                                cognitiva de tus hijos a un algoritmo</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="narrative-container mx-auto text-center space-y-8">
+                <p class="text-2xl font-bold text-brand-blue-deep">Porque la IA no es solo una herramienta.</p>
+                <p class="text-4xl font-display font-extrabold text-brand-purple">Es un actor educativo invisible.
+                </p>
+                <p class="text-lg leading-relaxed">Está enseñando a tus hijos cómo validar emociones, tomar
+                    decisiones,
+                    pensar sobre problemas complejos. Y lo hace con paciencia infinita, validación constante y cero
+                    frustración.</p>
+
+                <div class="bg-brand-gray-main text-white p-10 rounded-[3rem] shadow-2xl">
+                    <h4 class="font-display text-2xl font-bold mb-4">¿El resultado?</h4>
+                    <p class="text-xl">Niños funcionalmente dependientes de una máquina para regulación emocional,
+                        toma
+                        de decisiones y pensamiento crítico.</p>
+                    <p class="mt-4 opacity-70">No porque la IA sea mala.</p>
+                    <p class="text-2xl font-bold text-brand-lavender mt-2">Sino porque nadie puso el marco humano
+                        primero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: LA SOLUCIÓN -->
+    <section id="metodo" class="py-24 bg-brand-blue-light px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-6">No tienes que volverte experto en
+                IA.
+            </h2>
+            <h3 class="text-2xl mb-10 opacity-80">No tienes que entender cómo funciona técnicamente.</h3>
+
+            <div class="glass-card p-12 rounded-[4rem] shadow-xl border border-white">
+                <p class="text-3xl font-display font-bold text-brand-blue-action mb-8 uppercase">Lo que SÍ
+                    necesitas: un
+                    marco claro que te devuelva autoridad.</p>
+                <div class="space-y-6 text-xl text-left text-brand-gray-main">
+                    <p>Porque la tranquilidad no viene de controlar todo. <strong>Viene de saber por qué pones los
+                            límites que pones.</strong></p>
+                    <p>De poder explicarle a tu hijo por qué esta conversación va con un humano, no con ChatGPT. Por
+                        qué
+                        esta tarea se hace con esfuerzo propio. Por qué esta emoción necesita sentirse, no
+                        "arreglarse"
+                        inmediatamente.</p>
+                    <p class="font-bold text-center text-2xl text-brand-blue-deep">Sin sonar desactualizado. Sin
+                        improvisación. Con criterio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: LAS PREGUNTAS QUE NO TE DEJAN DORMIR -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-4">¿Te suena familiar alguna de
+                    estas?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Grid items -->
+                <div
+                    class="p-6 bg-brand-gray-light rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brand-lavender">
+                    <h4 class="font-display font-bold text-brand-purple mb-4 uppercase">Sobre el uso diario:</h4>
+                    <ul class="text-sm space-y-3 opacity-90">
+                        <li>• ¿Tu hijo prefiere pedirle ayuda a ChatGPT antes que a ti?</li>
+                        <li>• ¿Has visto mejoras repentinas en sus tareas que no puede explicar?</li>
+                        <li>• ¿Se pone defensivo cuando le preguntas sobre sus conversaciones con IA?</li>
+                    </ul>
+                </div>
+                <div
+                    class="p-6 bg-brand-gray-light rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brand-lavender">
+                    <h4 class="font-display font-bold text-brand-purple mb-4 uppercase">Sobre el impacto emocional:
+                    </h4>
+                    <ul class="text-sm space-y-3 opacity-90">
+                        <li>• ¿Acepta todo lo que la IA le dice, pero discute tus consejos?</li>
+                        <li>• ¿Cambia de humor cuando no tiene acceso a internet?</li>
+                        <li>• ¿Está perdiendo tolerancia a la frustración porque la IA siempre le da respuestas
+                            fáciles?
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="p-6 bg-brand-gray-light rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brand-lavender">
+                    <h4 class="font-display font-bold text-brand-purple mb-4 uppercase">Sobre el futuro:</h4>
+                    <ul class="text-sm space-y-3 opacity-90">
+                        <li>• ¿Te preocupa que sea funcionalmente dependiente de una máquina para tomar decisiones?
+                        </li>
+                        <li>• ¿Te preguntaste si sus conversaciones hoy con ChatGPT podrían afectarlo en una
+                            entrevista
+                            de trabajo en 10 años?</li>
+                        <li>• ¿Sabes qué habilidades humanas serán realmente irremplazables?</li>
+                    </ul>
+                </div>
+                <div
+                    class="p-6 bg-brand-gray-light rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brand-lavender">
+                    <h4 class="font-display font-bold text-brand-purple mb-4 uppercase">Sobre tu rol como padre:
+                    </h4>
+                    <ul class="text-sm space-y-3 opacity-90">
+                        <li>• ¿Sientes que improvisas cada regla porque no tienes un marco claro?</li>
+                        <li>• ¿Postergas conversaciones importantes porque no sabes cómo empezarlas?</li>
+                        <li>• ¿Te quedas despierto leyendo artículos pero sin saber qué hacer con la información?
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center bg-brand-lavender/30 p-10 rounded-[3rem]">
+                <p class="text-2xl font-bold text-brand-blue-deep">Si respondiste "sí" a 3 o más...</p>
+                <p class="text-4xl font-display font-extrabold text-brand-purple-deep mt-2">Este curso fue diseñado
+                    exactamente para ti.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 7: EL CURSO -->
+    <section class="py-24 bg-brand-blue-deep text-white px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h1 class="font-display text-5xl md:text-6xl font-bold text-center mb-8">Curso Live: IA para Papás</h1>
+            <p class="text-2xl md:text-3xl text-center font-sans mb-16 text-brand-lavender">El marco de Autoridad
+                Tranquila para padres que quieren proteger a sus hijos en la era de la IA—sin vivir con la sensación
+                de
+                que ya van tarde.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/10 p-8 rounded-3xl border border-white/10">
+                    <h3 class="font-display text-xl font-bold text-brand-danger mb-6 uppercase tracking-widest">Esto
+                        NO
+                        es:</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">❌ <span>Un curso técnico sobre cómo funciona la IA</span>
+                        </li>
+                        <li class="flex items-start gap-3">❌ <span>Una charla alarmista que te deja con más
+                                miedo</span>
+                        </li>
+                        <li class="flex items-start gap-3">❌ <span>Hacks que suenan bien pero no funcionan en
+                                casa</span></li>
+                    </ul>
+                </div>
+                <div class="bg-brand-purple/20 p-8 rounded-3xl border border-brand-purple/30">
+                    <h3 class="font-display text-xl font-bold text-brand-success mb-6 uppercase tracking-widest">
+                        Esto SÍ
+                        es:</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">✓ <span>Un marco adulto, serio y humano para entender la
+                                IA
+                                en contexto de crianza</span></li>
+                        <li class="flex items-start gap-3">✓ <span>Herramientas prácticas que puedes implementar
+                                desde
+                                la primera sesión</span></li>
+                        <li class="flex items-start gap-3">✓ <span>Protocolos específicos que convierten ambigüedad
+                                en
+                                criterio</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center bg-brand-blue-action p-8 rounded-2xl">
+                <p class="text-2xl font-bold mb-2">7 Sesiones en Vivo | 1 Hora | Martes y Jueves | 7:00 PM (Centro
+                    de
+                    México)</p>
+                <p class="text-xl text-brand-lavender font-bold">Inicio: Semana después de Semana Santa 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 8: LO QUE VAMOS A CUBRIR -->
+    <section id="programa" class="py-24 bg-white px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-16 text-center">LO QUE VAMOS A CUBRIR
+            </h2>
+
+            <div class="space-y-12">
+                <!-- Temas -->
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        1</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 1: Fundamentos</h4>
+                        <p class="text-brand-gray-main opacity-80">Lo que realmente es la IA, cómo ya vive en tu
+                            casa, y
+                            por qué suena tan convincente incluso cuando está equivocada.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        2</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 2: Cerebro Adolescente + IA</h4>
+                        <p class="text-brand-gray-main opacity-80">Por qué tus hijos son particularmente
+                            vulnerables,
+                            qué es el "Validation Feedback Loop", y cómo detectar dependencia emocional temprana.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        3</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 3: Huella Digital e IA Generativa</h4>
+                        <p class="text-brand-gray-main opacity-80">Lo que la IA sabe de tu hijo, cómo se construye
+                            su
+                            perfil digital permanente, y las implicaciones que nadie te está explicando.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        4</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 4: Seguridad Práctica</h4>
+                        <p class="text-brand-gray-main opacity-80">Deepfakes, estafas con voces clonadas,
+                            desinformación... y los protocolos específicos que funcionan en familias reales.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        5</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 5: IA en la Escuela</h4>
+                        <p class="text-brand-gray-main opacity-80">La línea clara entre "herramienta de aprendizaje"
+                            y
+                            "muleta cognitiva"—y cómo hablar de esto con maestros sin sonar paranoico.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        6</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 6: Habilidades Irremplazables</h4>
+                        <p class="text-brand-gray-main opacity-80">Qué desarrollar en tus hijos para que sean
+                            competitivos (no obsoletos) en un mundo con IA avanzada.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-none w-12 h-12 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        7</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Tema 7: Tu Plan Familiar</h4>
+                        <p class="text-brand-gray-main opacity-80">Protocolos específicos, señales de alerta,
+                            límites
+                            que funcionan, y el "Contrato Familiar de IA" que implementarás desde la última sesión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 p-10 bg-brand-gray-light rounded-[3rem] border border-gray-200">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="font-bold text-brand-danger mb-4 uppercase text-sm">Lo que NO haremos:</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>❌ Darte una lista de "10 hacks rápidos"</li>
+                            <li>❌ Asustarte con escenarios apocalípticos</li>
+                            <li>❌ Prometerte control total sobre lo que tus hijos hacen con IA</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-brand-success mb-4 uppercase text-sm">Lo que SÍ haremos:</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Darte un marco claro que convierte ambigüedad en criterio</li>
+                            <li>✓ Responder estas preguntas</li>
+                            <li>✓ Darte protocolos específicos</li>
+                            <li>✓ Ayudarte a recuperar autoridad tranquila</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 9: LO QUE INCLUYE -->
+    <section id="inversion" class="py-24 bg-brand-gray-light px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-16 text-center">LO QUE INCLUYE</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-brand-purple mb-4">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path fill-rule="evenodd"
+                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold mb-2">Sesiones en vivo</h4>
+                    <p class="text-sm opacity-80">7 sesiones en vivo de 1 hora + grabaciones para siempre.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-brand-purple mb-4">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold mb-2">Biblioteca de Prompts</h4>
+                    <p class="text-sm opacity-80">Colección exclusiva de prompts para uso familiar responsable con
+                        IA.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-brand-purple mb-4">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M2.166 4.999A11.954 11.954 0 0010 1.944a11.954 11.954 0 007.834 3.055 1.158 1.158 0 01.82 1.962 11.335 11.335 0 01-7.669 3.027 11.335 11.335 0 01-7.669-3.027 1.158 1.158 0 01.82-1.962zM10 12a3 3 0 100-6 3 3 0 000 6z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M10 14a8.962 8.962 0 01-8.74-6.779A11.332 11.332 0 0010 10.138a11.332 11.332 0 008.74-2.917A8.962 8.962 0 0110 14z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold mb-2">Acceso Portal SAFE</h4>
+                    <p class="text-sm opacity-80">Acceso gratuito por 1 año al portal (Seguridad y Acciones para
+                        Familias Enlazadas).</p>
+                </div>
+            </div>
+
+            <div id="precio" class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-brand-lavender">
+                <div class="bg-brand-blue-deep p-12 text-white text-center">
+                    <h3 class="font-display text-2xl uppercase tracking-widest mb-4">Inversión</h3>
+                    <p class="text-6xl font-display font-bold mb-2">$500 USD</p>
+                    <p class="text-brand-lavender font-bold uppercase tracking-tighter italic">Cupos limitados</p>
+                </div>
+                <div class="p-12 text-center">
+                    <ul class="text-left max-w-md mx-auto space-y-4 mb-10">
+                        <li class="flex items-center gap-3">✓ <span>Materiales descargables completos</span></li>
+                        <li class="flex items-center gap-3">✓ <span>Protocolo Human First</span></li>
+                        <li class="flex items-center gap-3">✓ <span>Plantilla del Contrato Familiar de IA</span>
+                        </li>
+                        <li class="flex items-center gap-3">✓ <span>Comunidad de padres activa</span></li>
+                    </ul>
+                    <a href="#"
+                        class="inline-block w-full bg-brand-blue-action hover:bg-brand-blue-deep text-white font-bold text-2xl py-6 rounded-2xl shadow-xl transition-all">
+                        RESERVA TU LUGAR AHORA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 10: PARA QUIÉN ES -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-16 text-center uppercase">¿Es esto
+                para
+                ti?</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="border-2 border-brand-success/30 p-10 rounded-3xl">
+                    <h3 class="font-display text-2xl font-bold text-brand-success mb-6 uppercase">Este curso es para
+                        ti
+                        si:</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start gap-3">✓ <span>Tienes hijos en primaria o secundaria que ya usan
+                                (o
+                                pronto usarán) IA</span></li>
+                        <li class="flex items-start gap-3">✓ <span>Te describes como "bien intencionado pero
+                                desbordado"</span></li>
+                        <li class="flex items-start gap-3">✓ <span>Quieres decisiones conscientes, no
+                                reactivas</span>
+                        </li>
+                        <li class="flex items-start gap-3">✓ <span>Buscas marcos claros, no prohibiciones
+                                absolutas</span></li>
+                        <li class="flex items-start gap-3">✓ <span>Prefieres lenguaje adulto sin alarmismo</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="border-2 border-brand-danger/30 p-10 rounded-3xl opacity-60">
+                    <h3 class="font-display text-2xl font-bold text-brand-danger mb-6 uppercase">NO es para ti si:
+                    </h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start gap-3">❌ <span>Crees que con reglas vagas es suficiente</span>
+                        </li>
+                        <li class="flex items-start gap-3">❌ <span>Buscas soluciones mágicas sin
+                                implementación</span>
+                        </li>
+                        <li class="flex items-start gap-3">❌ <span>Prefieres ignorar el tema hasta que "algo malo
+                                pase"</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 11: GARANTÍA -->
+    <section class="py-24 bg-brand-blue-deep text-white px-6 text-center">
+        <div class="container mx-auto max-w-3xl">
+            <div
+                class="w-24 h-24 bg-brand-lavender text-brand-blue-deep rounded-full flex items-center justify-center mx-auto mb-8">
+                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+            </div>
+            <h2 class="font-display text-4xl font-bold mb-6 uppercase">Nuestra promesa:</h2>
+            <p class="text-2xl mb-10">Si completas las 7 sesiones y aplicas las herramientas, <strong>saldrás con
+                    criterio claro.</strong></p>
+            <div class="bg-white/10 p-8 rounded-2xl mb-10 text-left">
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-center gap-2">✓ Un marco que te permite decidir</li>
+                    <li class="flex items-center gap-2">✓ Lenguaje para hablar con tus hijos</li>
+                    <li class="flex items-center gap-2">✓ Protocolos que implementas mañana</li>
+                    <li class="flex items-center gap-2">✓ La sensación de autoridad tranquila</li>
+                </ul>
+            </div>
+            <p class="text-xl italic opacity-80">Si sientes que no obtuviste esto, te devolvemos el 100% de tu
+                inversión. Sin preguntas incómodas.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 12: FAQ -->
+    <section id="faq" class="py-24 bg-white px-6" x-data="{ active: null }">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-12 text-center">FAQ</h2>
+
+            <div class="space-y-4">
+                <!-- FAQ Item -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button @click="active = (active === 1 ? null : 1)"
+                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
+                        <span>"¿No puedo buscar esto en internet?"</span>
+                        <span class="text-brand-purple" x-text="active === 1 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 1" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
+                        <p>Claro. Pero encontrarás 1,000 opiniones contradictorias. La mitad te dirá que la IA es el
+                            apocalipsis. La otra que eres un dinosaurio.</p>
+                        <p class="mt-2 font-bold">Lo que no encontrarás: Un marco que integre psicología +
+                            tecnología +
+                            crianza, probado con familias reales.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button @click="active = (active === 2 ? null : 2)"
+                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
+                        <span>"¿Es muy técnico?"</span>
+                        <span class="text-brand-purple" x-text="active === 2 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 2" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
+                        <p>No. Este curso es para padres, no para ingenieros. Si puedes usar WhatsApp, puedes
+                            entender
+                            este curso.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button @click="active = (active === 3 ? null : 3)"
+                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
+                        <span>"¿Y si mis hijos son muy pequeños?"</span>
+                        <span class="text-brand-purple" x-text="active === 3 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 3" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
+                        <p>Mejor. Este curso te da ventaja: establecerás marcos ANTES de que los hábitos
+                            problemáticos
+                            se formen. Es más fácil prevenir que corregir.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button @click="active = (active === 4 ? null : 4)"
+                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
+                        <span>"¿Qué pasa si no puedo asistir en vivo?"</span>
+                        <span class="text-brand-purple" x-text="active === 4 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 4" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
+                        <p>Todas las sesiones quedan grabadas. Pero recomendamos asistir en vivo: ahí puedes hacer
+                            preguntas específicas sobre TU situación familiar.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button @click="active = (active === 5 ? null : 5)"
+                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
+                        <span>"¿Esto me va a dar más trabajo?"</span>
+                        <span class="text-brand-purple" x-text="active === 5 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 5" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
+                        <p>Al principio, sí: necesitas implementar protocolos. Pero la alternativa es más trabajo:
+                            conversaciones interminables sin criterio, ansiedad constante, sentir que improvisas
+                            cada
+                            decisión.</p>
+                        <p class="mt-2 font-bold">Este curso convierte ambigüedad en claridad. Y la claridad reduce
+                            el
+                            trabajo emocional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 13: URGENCIA REAL -->
+    <section class="py-24 bg-brand-gray-main text-white px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-display text-4xl font-bold mb-8 uppercase tracking-widest text-brand-lavender">Por qué
+                ahora
+            </h2>
+            <div class="space-y-6 text-2xl">
+                <p>Mientras lees esto, tus hijos están conversando con IA.</p>
+                <p class="font-bold text-brand-lavender text-4xl">Hoy.</p>
+                <p class="opacity-80">Y cada conversación está formando cómo validan emociones, toman decisiones,
+                    qué
+                    esperan de las relaciones.</p>
+                <p class="font-bold">El uso ya está ocurriendo.</p>
+                <p class="text-brand-blue-action text-3xl font-display uppercase font-bold">La pregunta no es
+                    "¿debería
+                    preocuparme?"</p>
+                <p class="text-4xl font-display font-extrabold">La pregunta es: "¿Quién está poniendo el marco: yo o
+                    el
+                    algoritmo?"</p>
+            </div>
+
+            <div class="mt-16 inline-block bg-white/5 border border-white/20 p-8 rounded-3xl">
+                <p class="text-2xl font-bold mb-2">Este curso empieza la semana después de Semana Santa.</p>
+                <p class="text-brand-danger text-xl font-bold uppercase tracking-tighter italic">Los cupos son
+                    limitados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 14: CTA FINAL -->
+    <section class="py-24 bg-white px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-display text-5xl font-bold text-brand-blue-deep mb-8">Es momento de decidir.</h2>
+
+            <div class="space-y-4 text-xl mb-12">
+                <p>Puedes seguir leyendo artículos a medianoche.</p>
+                <p>Puedes seguir prometiéndote que "mañana hablas con tus hijos".</p>
+                <p>Puedes seguir improvisando reglas que no puedes sostener.</p>
+            </div>
+
+            <div class="bg-brand-blue-light p-10 rounded-[3rem] mb-16 border-2 border-brand-blue-main/30">
+                <p class="text-3xl font-display font-bold text-brand-blue-deep">O puedes hacer esto:</p>
+                <p class="text-xl mt-4">Reservar tu lugar. Completar las 7 sesiones. Implementar el marco.</p>
+                <p class="text-2xl font-bold text-brand-purple mt-2 tracking-tight leading-none">Y dormir tranquilo
+                    sabiendo que no estás llegando tarde.</p>
+            </div>
+
+            <!-- Pensamiento de Rudy -->
+            <div
+                class="narrative-container mx-auto bg-gray-50 p-10 rounded-2xl text-left border-l-8 border-brand-purple mb-16">
+                <h4 class="font-display text-xl font-bold mb-4 uppercase text-brand-purple">Un último pensamiento:
+                </h4>
+                <p class="text-lg leading-relaxed italic">"He evaluado soluciones educativas de 180 países. He visto
+                    lo
+                    mejor de lo mejor. Y puedo decirte esto con certeza: La mejor tecnología del mundo no reemplaza
+                    a un
+                    adulto con criterio claro. Este curso no te hace experto en IA. <strong>Te devuelve lo que la IA
+                        nunca podrá quitarte: tu autoridad como padre.</strong>"</p>
+            </div>
+
+            <div class="space-y-8">
+                <h3 class="font-display text-4xl font-bold text-brand-blue-deep uppercase leading-tight">Porque la
+                    IA ya
+                    educa a tus hijos.<br><span class="text-brand-purple">La pregunta es si tú también.</span></h3>
+
+                <a href="#"
+                    class="inline-block bg-brand-blue-action hover:bg-brand-blue-deep text-white font-bold text-3xl px-12 py-8 rounded-[2rem] shadow-2xl transition-all transform hover:scale-110">
+                    RESERVA TU LUGAR → CUPOS LIMITADOS
+                </a>
+
+                <div class="pt-8">
+                    <p class="text-xl font-bold text-brand-blue-deep uppercase tracking-widest">Inversión: $500 USD
+                    </p>
+                    <p class="text-brand-gray-main opacity-70">Inicio: Semana después de Semana Santa 2025</p>
+                    <p class="text-brand-gray-main opacity-70">Martes y Jueves | 7:00 PM (Hora del Centro de México)
+                    </p>
+                </div>
+
+                <div class="bg-brand-gray-light p-6 rounded-2xl inline-block mt-8">
+                    <p class="font-bold text-brand-success uppercase text-sm mb-1">Garantía de Satisfacción 100%</p>
+                    <p class="text-xs opacity-70">Si completas las 7 sesiones y no sientes que obtuviste criterio
+                        claro,
+                        te devolvemos tu inversión completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-20 px-6">
+        <div class="container mx-auto max-w-5xl text-center">
+            <img src="/assets/ia-para-papas-logo-blanco.png" class="h-24 mx-auto mb-8 opacity-50" alt="Logo">
+            <p class="text-sm opacity-50 mb-4 tracking-widest">Gnius Club | "Pioneros en educación sobre IA desde
+                2018"
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
