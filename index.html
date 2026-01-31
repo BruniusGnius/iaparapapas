@@ -11,7 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Saira:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
+    <!--ICONOS-->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -1237,7 +1238,7 @@
             <div class="max-w-6xl mx-auto mb-24">
                 <div
                     class="relative aspect-video lg:aspect-[16/9] rounded-[1rem] md:rounded-[1rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/20 bg-brand-midnight">
-                    <img src="assets/padre-con-autoridad-uso-ia.png" alt="Autoridad Tranquila"
+                    <img src="assets/ia-para-papas-cover-16-9.png" alt="Autoridad Tranquila"
                         class="w-full h-full object-cover brightness-[0.9] contrast-[1.1]">
 
                     <!-- Marcador de ÉXITO Verde -->
@@ -1740,251 +1741,695 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 9: LO QUE INCLUYE -->
-    <section id="inversion" class="py-24 bg-brand-gray-light px-6">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-16 text-center">LO QUE INCLUYE</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="text-brand-purple mb-4">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                            <path fill-rule="evenodd"
-                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                clip-rule="evenodd" />
+    <!-- SECCIÓN 9: ENTREGABLES (DIAGRAMACIÓN 8+4 + PHOSPHOR ICONS) -->
+    <section id="inversion" class="relative py-12 lg:py-16 bg-brand-gray-light overflow-hidden font-sans">
+
+        <div class="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <h2
+                class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-brand-blue-deep mb-20 text-center uppercase tracking-tighter">
+                Cuando te inscribes, <span class="text-brand-purple italic">obtienes:</span>
+            </h2>
+
+            <!-- GRID DE ENTREGABLES: ICONOS SÓLIDOS + SPARKLE SVG + DIAGRAMACIÓN 12 COLUMNAS -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto mb-10 font-sans">
+
+                <!-- MÓDULO 1: SESIONES (4/12) -->
+                <div
+                    class="md:col-span-4 bg-white border border-brand-purple/10 p-10 rounded-[2.5rem] shadow-xl flex flex-col items-center text-center relative overflow-hidden group">
+                    <!-- SVG Sparkle Original Reintegrado -->
+                    <div class="absolute top-8 right-8 w-10 h-10 opacity-20 animate-twinkle">
+                        <svg viewBox="0 0 40.6 49.1" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad_ent" x1="21.8" y1="-6.5" x2="-4.9" y2="25.8"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#7651d8" />
+                                    <stop offset=".3" stop-color="#5a6de2" />
+                                    <stop offset="1" stop-color="#13b6fd" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#grad_ent)"
+                                d="M8.3,15.9c0,.4,0,1.8.4,2,1.1.5.9-1.4,1-1.9.2-1.3.5-3,1.2-4.1,1.2-2,4.7-2.1,6.8-2.5,1.3-1.2-1.2-1.1-1.9-1.2-3.8-.7-5.1-1.2-5.9-5.2-.2-.8-.2-1.9-.3-2.6s-.8-.7-1-.1c-.3,1.9-.4,4.1-1.4,5.8S2.3,8.2.3,8.5c-.5.2-.5.8,0,1,1.8.3,5.1.5,6.4,1.9.8.9,1.4,3.3,1.6,4.5Z" />
                         </svg>
                     </div>
-                    <h4 class="font-bold mb-2">Sesiones en vivo</h4>
-                    <p class="text-sm opacity-80">7 sesiones en vivo de 1 hora + grabaciones para siempre.</p>
+                    <div
+                        class="w-16 h-16 bg-brand-purple text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-video-camera text-4xl"></i>
+                    </div>
+                    <h4
+                        class="font-display text-xl md:text-2xl font-bold text-brand-purple-deep uppercase tracking-widest leading-tight mb-4">
+                        7 Sesiones en vivo</h4>
+                    <p class="text-brand-gray-main opacity-70 text-sm leading-relaxed ">De 1 hora + grabaciones
+                        para consulta&nbsp;permanente.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="text-brand-purple mb-4">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+
+                <!-- MÓDULO 2: PROMPTS (4/12) -->
+                <div
+                    class="md:col-span-4 bg-white border border-brand-purple/10 p-10 rounded-[2.5rem] shadow-xl flex flex-col items-center text-center relative overflow-hidden group">
+                    <div
+                        class="w-16 h-16 bg-brand-purple text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-stack text-4xl"></i>
+                    </div>
+                    <h4
+                        class="font-display text-xl md:text-2xl font-bold text-brand-purple-deep uppercase tracking-widest leading-tight mb-4">
+                        Colección de Prompts</h4>
+                    <p class="text-brand-gray-main opacity-70 text-sm leading-relaxed ">Exclusivos para uso
+                        familiar responsable con IA.</p>
+                </div>
+
+                <!-- MÓDULO 3: PORTAL SAFE (4/12) -->
+                <div
+                    class="md:col-span-4 bg-white border border-brand-purple/10 p-10 rounded-[2.5rem] shadow-xl flex flex-col items-center text-center relative overflow-hidden group">
+                    <div
+                        class="w-16 h-16 bg-brand-purple text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-shield-check text-4xl"></i>
+                    </div>
+                    <h4
+                        class="font-display text-xl md:text-2xl font-bold text-brand-purple-deep uppercase tracking-widest leading-tight mb-4">
+                        Acceso Portal SAFE</h4>
+                    <p class="text-brand-gray-main opacity-70 text-sm leading-relaxed ">Acceso gratuito por 1 año
+                        a SAFE (Seguridad y Acciones para Familias Enlazadas).</p>
+                </div>
+
+                <!-- MÓDULO 4: MATERIALES DESCARGABLES (8/12 - 66%) -->
+                <div
+                    class="md:col-span-8 bg-white border-2 border-brand-purple/10 p-10 md:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden group">
+                    <!-- SVG Sparkle Grande -->
+                    <div class="absolute top-6 right-6 w-12 h-12 opacity-10 animate-twinkle">
+                        <svg viewBox="0 0 40.6 49.1" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad_mat" x1="21.8" y1="-6.5" x2="-4.9" y2="25.8"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#7651d8" />
+                                    <stop offset=".3" stop-color="#5a6de2" />
+                                    <stop offset="1" stop-color="#13b6fd" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#grad_mat)"
+                                d="M22.1,31.1c0,.6,0,2.5.5,2.8,1.4.7,1.2-1.9,1.3-2.6.3-1.7.7-4.1,1.6-5.6,1.7-2.7,6.4-2.9,9.3-3.4,1.8-1.6-1.6-1.5-2.6-1.7-5.2-.9-7-1.7-8.1-7.1-.2-1.2-.2-2.5-.5-3.6s-1.2-.9-1.4-.2c-.4,2.5-.6,5.7-2,7.9s-6.5,2.8-9.3,3.3c-.6.3-.6,1.1,0,1.4,2.4.4,7,.7,8.8,2.6s1.9,4.6,2.1,6.2Z" />
                         </svg>
                     </div>
-                    <h4 class="font-bold mb-2">Biblioteca de Prompts</h4>
-                    <p class="text-sm opacity-80">Colección exclusiva de prompts para uso familiar responsable con
-                        IA.
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
+                        <div class="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
+                            <div
+                                class="w-16 h-16 bg-brand-purple text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform mx-auto">
+                                <!-- Icono Hoja + Flecha -->
+                                <i class="ph-fill ph-file-arrow-down text-4xl "></i>
+                            </div>
+                            <h4
+                                class="font-display text-xl md:text-2xl font-bold text-brand-purple-deep uppercase tracking-widest leading-none text-center">
+                                Materiales<br>Descargables</h4>
+                        </div>
+                        <div
+                            class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-brand-blue-light pt-8 md:pt-2 md:pl-12">
+                            <ul class="space-y-4 text-brand-gray-main font-medium text-sm md:text-base ">
+                                <li class="flex items-center gap-3"><i
+                                        class="ph-fill ph-caret-right text-brand-purple"></i> Banderas amarillas y rojas
+                                    (señales de alerta)</li>
+                                <li class="flex items-center gap-3 border-y border-brand-blue-light/30 py-3"><i
+                                        class="ph-fill ph-caret-right text-brand-purple"></i> Herramientas prácticas
+                                    (Regla de 5 minutos, Protocolo Human First)
+                                </li>
+                                <li class="flex items-center gap-3"><i
+                                        class="ph-fill ph-caret-right text-brand-purple"></i> Plantilla del Contrato
+                                    Familiar de IA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MÓDULO 5: COMUNIDAD (4/12 - 33%) -->
+                <div
+                    class="md:col-span-4 bg-brand-lavender/10 border border-brand-purple/20 p-10 rounded-[2.5rem] shadow-xl flex flex-col items-center text-center relative group overflow-hidden">
+                    <div
+                        class="w-16 h-16 bg-brand-purple text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-users-three text-4xl"></i>
+                    </div>
+                    <h4
+                        class="font-display text-xl md:text-2xl font-bold text-brand-purple-deep uppercase tracking-widest leading-tight mb-4">
+                        Comunidad de padres</h4>
+                    <p class="text-brand-gray-main opacity-70 text-sm leading-relaxed ">Navegando los mismos
+                        desafíos en un entorno&nbsp;privado.</p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+    <!-- SECCIÓN: PRICING CARD INDEPENDIENTE (TRANSICIÓN VERTICAL DE IDENTIDAD) -->
+    <section id="inversion-final"
+        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-gray-light via-brand-purple via-brand-blue-main via-brand-purple to-brand-gray-light overflow-visible">
+
+        <!-- Textura de ruido para coherencia cinematográfica -->
+        <div class="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- PRICING CARD: ARQUITECTURA PREMUM (7/12 + 5/12) -->
+            <div id="precio"
+                class="max-w-6xl mx-auto bg-white rounded-[3rem] shadow-[0_50px_100px_rgba(31,111,235,0.25)] overflow-hidden border-2 border-white/20 font-sans">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+
+                    <!-- COLUMNA IZQUIERDA: SÍNTESIS DE VALOR (7 de 12) -->
+                    <div class="lg:col-span-7 p-10 md:p-16 lg:p-20 flex flex-col justify-center">
+
+                        <!-- Píldora Urgencia con Shake -->
+                        <div
+                            class="inline-flex items-center gap-3 bg-brand-danger/5 border border-brand-danger/20 px-5 py-2 rounded-full mb-10 w-fit animate-urgency">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-danger opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-danger"></span>
+                            </span>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-danger">Cupo
+                                limitado</span>
+                        </div>
+
+                        <h3 class="font-display text-2xl uppercase tracking-[0.3em] text-brand-purple font-bold mb-4 ">
+                            Inversión Única</h3>
+
+                        <!-- SÍNTESIS ULTRA-BREVE (ACORDADA POR UX WRITERS) -->
+                        <ul class="space-y-4 text-brand-blue-deep mb-12">
+                            <li class="flex items-center gap-4">
+                                <i class="ph-fill ph-check-circle text-brand-purple text-2xl shrink-0"></i>
+                                <span class="text-lg font-bold">Criterio claro: <span
+                                        class="font-medium opacity-60">Adiós a la improvisación.</span></span>
+                            </li>
+                            <li class="flex items-center gap-4 border-y border-brand-blue-light py-5">
+                                <i class="ph-fill ph-check-circle text-brand-purple text-2xl shrink-0"></i>
+                                <span class="text-lg font-bold">Autoridad tranquila: <span
+                                        class="font-medium opacity-60">Límites que sí funcionan.</span></span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <i class="ph-fill ph-check-circle text-brand-purple text-2xl shrink-0"></i>
+                                <span class="text-lg font-bold">Prevención real: <span
+                                        class="font-medium opacity-60">Protección para su futuro.</span></span>
+                            </li>
+                            <li class="flex items-center gap-4 border-t border-brand-blue-light pt-5">
+                                <i class="ph-fill ph-seal-check text-brand-success text-2xl shrink-0"></i>
+                                <span class="text-lg font-bold italic">Respaldo global de la ONU (WSA).</span>
+                            </li>
+                        </ul>
+
+                        <!-- PRECIO Y CTA -->
+                        <div class="flex flex-col sm:flex-row items-baseline gap-4 mb-10">
+                            <p
+                                class="text-7xl md:text-9xl font-display font-black text-brand-blue-deep tracking-tighter leading-none">
+                                $500</p>
+                            <p class="text-xl text-brand-purple font-bold uppercase tracking-[0.2em]">USD</p>
+                        </div>
+
+                        <a href="#"
+                            class="inline-block bg-gradient-to-r from-brand-purple to-brand-blue-main text-white px-12 py-7 rounded-2xl font-display font-extrabold text-2xl uppercase tracking-[0.15em] shadow-[0_20px_50px_rgba(31,111,235,0.3)] hover:scale-[1.02] active:scale-95 transition-all text-center">
+                            RESERVAR MI LUGAR AHORA
+                        </a>
+
+                        <p class="mt-6 text-center text-[10px] text-brand-success font-bold uppercase tracking-widest ">
+                            Pago seguro 100% encriptado
+                        </p>
+                    </div>
+
+                    <!-- COLUMNA DERECHA: IMAGEN VERTICAL (5 de 12) -->
+                    <div class="hidden lg:block lg:col-span-5 relative bg-brand-midnight overflow-hidden">
+                        <img src="assets/madre-guiando-con-criterio-a-sus-hijos.png"
+                            alt="Madre guiando con criterio a sus hijos sobre el uso de IA"
+                            class="w-full h-full object-cover ">
+
+                        <!-- Overlay de integración cromática -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-brand-midnight via-transparent to-transparent opacity-80">
+                        </div>
+
+                        <!-- SELLO DE GARANTÍA RECUPERADO: CRISTAL ESMERILADO + ÉXITO -->
+                        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-full px-8 text-center z-20">
+                            <div
+                                class="inline-block bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-[1rem] shadow-2xl transition-transform hover:scale-105 duration-500 group">
+
+                                <!-- Icono de Sello con Resplandor -->
+                                <div class="relative w-16 h-16 mx-auto mb-4">
+                                    <!-- Pulso de seguridad sutil -->
+                                    <div
+                                        class="absolute inset-0 bg-brand-success rounded-full blur-xl opacity-20 animate-pulse">
+                                    </div>
+                                    <i
+                                        class="ph-fill ph-seal-check text-brand-success text-6xl relative z-10 drop-shadow-lg"></i>
+                                </div>
+
+                                <!-- Texto de Garantía Inmutable -->
+                                <p
+                                    class="text-white text-[11px] font-bold uppercase tracking-[0.3em] leading-tight mb-1">
+                                    Garantía de <br> Satisfacción 100%
+                                </p>
+                                <p class="text-white/40 text-[9px] uppercase tracking-widest font-medium">
+                                    Inversión Protegida
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 10: SEGMENTACIÓN (AMBAS CARDS BLANCAS - CÓDIGO SEMÁNTICO) -->
+    <section id="segmentacion" class="relative py-24 lg:py-32 bg-brand-gray-light overflow-hidden font-sans">
+
+        <div class="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none text-brand-success"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- CABECERA -->
+            <div class="max-w-4xl mx-auto text-center mb-24">
+                <span
+                    class="text-brand-purple font-bold text-[10px] uppercase tracking-[0.4em] block mb-4">Cualificación</span>
+                <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-brand-blue-deep lg:leading-tight">
+                    ¿ES ESTE EL PASO <br class="hidden md:block"> <span class="text-brand-purple ">CORRECTO PARA
+                        TI?</span>
+                </h2>
+            </div>
+
+            <!-- GRID DE COMPARATIVA -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
+
+                <!-- CAPSULA 1: PARA TI SI (BLANCO + VERDE / SCALE 105%) -->
+                <div
+                    class="flex flex-col md:flex-row items-center bg-white border-2 border-brand-success/20 rounded-l-none md:rounded-l-full rounded-r-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(16,185,129,0.1)] z-10 transform md:scale-105 transition-all duration-500 relative group">
+
+                    <div class="absolute top-6 right-8 w-10 h-10 opacity-20 animate-twinkle">
+                        <i class="ph-fill ph-sparkle text-3xl text-brand-success"></i>
+                    </div>
+
+                    <div class="w-full md:w-1/3 p-6 flex justify-center">
+                        <div
+                            class="w-24 h-24 rounded-full bg-brand-success/10 border-2 border-brand-success/30 flex items-center justify-center">
+                            <i class="ph-fill ph-check-circle text-brand-success text-5xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-2/3 p-8 md:p-12 md:pl-2 text-left">
+                        <h4 class="font-display text-xl font-bold text-brand-success uppercase tracking-widest mb-8">
+                            Este curso es para ti si:</h4>
+                        <ul class="space-y-4 text-brand-blue-deep text-sm md:text-base leading-tight">
+                            <li class="flex items-start gap-3 ">
+                                <i class="ph-fill ph-caret-right text-brand-success mt-1"></i>
+                                <span>Tienes hijos en primaria o secundaria que ya usan (o pronto usarán) IA</span>
+                            </li>
+                            <li class="flex items-start gap-3 border-y border-brand-blue-light py-4 ">
+                                <i class="ph-fill ph-caret-right text-brand-success mt-1"></i>
+                                <span>Te describes como "bien intencionado pero desbordado"</span>
+                            </li>
+                            <li class="flex items-start gap-3 ">
+                                <i class="ph-fill ph-caret-right text-brand-success mt-1"></i>
+                                <span>Quieres decisiones conscientes, no reactivas</span>
+                            </li>
+                            <li class="flex items-start gap-3 border-y border-brand-blue-light py-4 ">
+                                <i class="ph-fill ph-caret-right text-brand-success mt-1"></i>
+                                <span>Buscas marcos claros, no prohibiciones absolutas</span>
+                            </li>
+                            <li class="flex items-start gap-3 ">
+                                <i class="ph-fill ph-caret-right text-brand-success mt-1"></i>
+                                <span>Prefieres lenguaje adulto sin alarmismo</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CAPSULA 2: NO ES PARA TI SI (BLANCO + ROJO / ESCALA NORMAL) -->
+                <div
+                    class="flex flex-col md:flex-row-reverse items-center bg-white border-2 border-brand-danger rounded-r-none md:rounded-r-full rounded-l-[2.5rem] overflow-hidden shadow-lg opacity-90 transition-all duration-500 self-center">
+
+                    <div class="w-full md:w-1/3 p-6 flex justify-center">
+                        <div
+                            class="w-20 h-20 rounded-full bg-brand-danger/5 border-2 border-brand-danger flex items-center justify-center">
+                            <i class="ph-fill ph-x-circle text-brand-danger text-4xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-2/3 p-8 md:p-12 md:pr-4 text-left">
+                        <h4 class="font-display text-lg font-bold text-brand-danger uppercase tracking-widest mb-8 ">
+                            NO es para ti si:</h4>
+                        <ul class="space-y-6 text-brand-gray-main text-sm md:text-base font-medium  leading-snug">
+                            <li class="flex items-start gap-3 ">
+                                <span class="text-brand-danger ">●</span>
+                                <span>Crees que con reglas vagas es suficiente</span>
+                            </li>
+                            <li class="flex items-start gap-3 border-y border-brand-blue-light py-5 ">
+                                <span class="text-brand-danger ">●</span>
+                                <span>Buscas soluciones mágicas sin implementación</span>
+                            </li>
+                            <li class="flex items-start gap-3 ">
+                                <span class="text-brand-danger ">●</span>
+                                <span>Prefieres ignorar el tema hasta que "algo malo pase"</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 11: GARANTÍA (CONTRATO DE CONFIANZA / CRISTAL + IDENTIDAD) -->
+    <section id="garantia"
+        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-gray-light via-brand-blue-action to-brand-blue-main overflow-hidden font-sans">
+
+        <!-- CAPA DE RUIDO Y DESTELLOS -->
+        <div class="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- CABECERA: SELLO DE IDENTIDAD -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <div class="relative inline-block mb-10">
+                    <!-- Sparkles SVG integrados en el Sello -->
+                    <div class="absolute -top-10 -right-10 w-20 h-20 opacity-30 animate-twinkle">
+                        <i class="ph-fill ph-sparkle text-5xl text-brand-lavender"></i>
+                    </div>
+
+                    <!-- Badge Circular con Degradado Nav Style -->
+                    <div
+                        class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-r from-brand-purple via-brand-blue-main to-brand-purple p-1 md:p-1.5 shadow-[0_0_50px_rgba(139,92,246,0.4)] ">
+                        <div
+                            class="w-full h-full rounded-full bg-brand-blue-deep border-4 border-white/20 flex flex-col items-center justify-center text-white">
+                            <i class="ph-fill ph-seal-check text-4xl md:text-5xl text-brand-success mb-1"></i>
+                            <span
+                                class="text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em]">Certificado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2
+                    class="font-display text-4xl md:text-6xl font-bold text-brand-blue-deep leading-tight uppercase tracking-tighter mb-6">
+                    Nuestra promesa:
+                </h2>
+                <p
+                    class="text-xl md:text-3xl text-brand-purple-deep font-bold leading-relaxed font-bold max-w-2xl mx-auto">
+                    Si completas las 7 sesiones y aplicas las herramientas, <span
+                        class="text-brand-blue-deep font-bold not-italic border-b-2 border-brand-purple/50">saldrás con
+                        criterio
+                        claro.</span>
+                </p>
+            </div>
+
+            <!-- TARJETA DE CRISTAL: LOS RESULTADOS CONCRETOS -->
+            <div
+                class="max-w-5xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden mb-16">
+
+                <p class="text-white/80 text-xs font-bold uppercase tracking-[0.5em] mb-12 text-center">Resultados
+                    Garantizados</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div class="flex items-start gap-4 group">
+                        <i
+                            class="ph-fill ph-check-circle text-brand-success text-2xl group-hover:scale-125 transition-transform duration-300"></i>
+                        <p class="text-white text-lg font-medium leading-snug">Un marco que te permite decidir con
+                            confianza</p>
+                    </div>
+                    <div class="flex items-start gap-4 group">
+                        <i
+                            class="ph-fill ph-check-circle text-brand-success text-2xl group-hover:scale-125 transition-transform duration-300"></i>
+                        <p class="text-white text-lg font-medium leading-snug">Lenguaje para hablar de esto con tus
+                            hijos sin sonar desconectado</p>
+                    </div>
+                    <div class="flex items-start gap-4 group border-t border-white/5 pt-8 md:pt-0 md:border-none">
+                        <i
+                            class="ph-fill ph-check-circle text-brand-success text-2xl group-hover:scale-125 transition-transform duration-300"></i>
+                        <p class="text-white text-lg font-medium leading-snug">Protocolos que implementas desde mañana
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-4 group border-t border-white/5 pt-8 md:pt-0 md:border-none">
+                        <i
+                            class="ph-fill ph-check-circle text-brand-success text-2xl group-hover:scale-125 transition-transform duration-300"></i>
+                        <p class="text-white text-lg font-medium leading-snug  text-brand-lavender">La sensación
+                            de que recuperaste autoridad tranquila</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLAUSULA DE REEMBOLSO (REVERSAL DE RIESGO MÁXIMO) -->
+            <div class="max-w-3xl mx-auto text-center space-y-8">
+                <div class="inline-block h-12 w-px bg-gradient-to-b from-brand-purple to-transparent"></div>
+
+                <p class="text-2xl md:text-3xl text-white font-medium leading-relaxed">
+                    Si sientes que no obtuviste esto, te devolvemos el <span
+                        class="text-brand-success font-black underline decoration-4 underline-offset-8">100% de tu
+                        inversión.</span>
+                </p>
+
+                <p class="text-white/80 text-xl md:text-2xl  tracking-wide">
+                    Sin preguntas incómodas.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 12: FAQ (ACORDIONES EN CÁPSULA + TRANSICIÓN CLARA) -->
+    <section id="faq"
+        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-blue-main via-brand-gray-light to-brand-blue-deep overflow-hidden font-sans">
+
+        <!-- Sparkles de fondo (Pequeños y sutiles) -->
+        <div class="absolute top-20 left-10 w-8 h-8 opacity-10 animate-twinkle delay-1">
+            <i class="ph-fill ph-sparkle text-brand-purple text-2xl"></i>
+        </div>
+        <div class="absolute bottom-40 right-12 w-6 h-6 opacity-10 animate-twinkle delay-3">
+            <i class="ph-fill ph-sparkle text-brand-blue-main text-xl"></i>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- CABECERA -->
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <h2
+                    class="font-display text-4xl md:text-6xl font-bold text-brand-blue-deep leading-tight uppercase tracking-tighter ">
+                    Preguntas <span class="text-brand-purple">Frecuentes</span>
+                </h2>
+            </div>
+
+            <!-- CONTENEDOR DE ACORDIONES (ALINEACIÓN CENTRAL) -->
+            <div class="max-w-3xl mx-auto space-y-4" x-data="{ selected: null }">
+
+                <!-- PREGUNTA 1 -->
+                <div
+                    class="group border border-brand-purple/10 rounded-[3rem] bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button @click="selected !== 1 ? selected = 1 : selected = null"
+                        class="w-full px-8 py-6 flex items-center justify-between text-left outline-none">
+                        <span
+                            class="text-lg md:text-xl font-bold text-brand-purple group-hover:text-brand-blue-deep transition-colors leading-tight">
+                            ¿No puedo buscar esto en internet?
+                        </span>
+                        <i class="ph-bold text-brand-purple transition-transform duration-300 text-2xl"
+                            :class="selected === 1 ? 'ph-minus rotate-180' : 'ph-plus'"></i>
+                    </button>
+                    <div x-show="selected === 1" x-collapse>
+                        <div
+                            class="px-8 pb-8 pt-2 text-brand-gray-main text-base md:text-lg leading-relaxed opacity-90">
+                            Claro. Pero encontrarás 1,000 opiniones contradictorias. La mitad te dirá que la IA es el
+                            apocalipsis. La otra que eres un dinosaurio. <br><br>
+                            <strong>Lo que no encontrarás:</strong> Un marco que integre psicología + tecnología +
+                            crianza, probado con familias reales.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 2 -->
+                <div
+                    class="group border border-brand-purple/10 rounded-[3rem] bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button @click="selected !== 2 ? selected = 2 : selected = null"
+                        class="w-full px-8 py-6 flex items-center justify-between text-left outline-none">
+                        <span
+                            class="text-lg md:text-xl font-bold text-brand-purple group-hover:text-brand-blue-deep transition-colors leading-tight">
+                            ¿Es muy técnico?
+                        </span>
+                        <i class="ph-bold text-brand-purple transition-transform duration-300 text-2xl"
+                            :class="selected === 2 ? 'ph-minus rotate-180' : 'ph-plus'"></i>
+                    </button>
+                    <div x-show="selected === 2" x-collapse>
+                        <div
+                            class="px-8 pb-8 pt-2 text-brand-gray-main text-base md:text-lg leading-relaxed opacity-90">
+                            No. Este curso es para padres, no para ingenieros. Si puedes usar WhatsApp, puedes entender
+                            este curso.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 3 -->
+                <div
+                    class="group border border-brand-purple/10 rounded-[3rem] bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button @click="selected !== 3 ? selected = 3 : selected = null"
+                        class="w-full px-8 py-6 flex items-center justify-between text-left outline-none">
+                        <span
+                            class="text-lg md:text-xl font-bold text-brand-purple group-hover:text-brand-blue-deep transition-colors leading-tight">
+                            ¿Y si mis hijos son muy pequeños?
+                        </span>
+                        <i class="ph-bold text-brand-purple transition-transform duration-300 text-2xl"
+                            :class="selected === 3 ? 'ph-minus rotate-180' : 'ph-plus'"></i>
+                    </button>
+                    <div x-show="selected === 3" x-collapse>
+                        <div
+                            class="px-8 pb-8 pt-2 text-brand-gray-main text-base md:text-lg leading-relaxed opacity-90">
+                            Mejor. Este curso te da ventaja: establecerás marcos ANTES de que los hábitos problemáticos
+                            se formen. Es más fácil prevenir que corregir.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 4 -->
+                <div
+                    class="group border border-brand-purple/10 rounded-[3rem] bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button @click="selected !== 4 ? selected = 4 : selected = null"
+                        class="w-full px-8 py-6 flex items-center justify-between text-left outline-none">
+                        <span
+                            class="text-lg md:text-xl font-bold text-brand-purple group-hover:text-brand-blue-deep transition-colors leading-tight">
+                            ¿Qué pasa si no puedo asistir en vivo?
+                        </span>
+                        <i class="ph-bold text-brand-purple transition-transform duration-300 text-2xl"
+                            :class="selected === 4 ? 'ph-minus rotate-180' : 'ph-plus'"></i>
+                    </button>
+                    <div x-show="selected === 4" x-collapse>
+                        <div
+                            class="px-8 pb-8 pt-2 text-brand-gray-main text-base md:text-lg leading-relaxed opacity-90">
+                            Todas las sesiones quedan grabadas. Pero recomendamos asistir en vivo: ahí puedes hacer
+                            preguntas específicas sobre TU situación familiar.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREGUNTA 5 -->
+                <div
+                    class="group border border-brand-purple/10 rounded-[3rem] bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button @click="selected !== 5 ? selected = 5 : selected = null"
+                        class="w-full px-8 py-6 flex items-center justify-between text-left outline-none">
+                        <span
+                            class="text-lg md:text-xl font-bold text-brand-purple group-hover:text-brand-blue-deep transition-colors leading-tight">
+                            ¿Esto me va a dar más trabajo?
+                        </span>
+                        <i class="ph-bold text-brand-purple transition-transform duration-300 text-2xl"
+                            :class="selected === 5 ? 'ph-minus rotate-180' : 'ph-plus'"></i>
+                    </button>
+                    <div x-show="selected === 5" x-collapse>
+                        <div
+                            class="px-8 pb-8 pt-2 text-brand-gray-main text-base md:text-lg leading-relaxed opacity-90">
+                            Al principio, sí: necesitas implementar protocolos. <br><br>
+                            Pero la alternativa es más trabajo: conversaciones interminables sin criterio, ansiedad
+                            constante, sentir que improvisas cada decisión. <br><br>
+                            <strong>Este curso convierte ambigüedad en claridad. Y la claridad reduce el trabajo
+                                emocional.</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 13: URGENCIA REAL (REDISEÑO DE ALTA TENSIÓN / MIDNIGHT + ALERT) -->
+    <section id="urgencia"
+        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-blue-deep via-brand-midnight to-brand-midnight overflow-hidden font-sans">
+
+        <!-- EFECTO PATRULLA DISCRETO (Sincronizado con el fondo) -->
+        <div
+            class="absolute top-1/4 left-[-10%] w-[800px] h-[600px] bg-brand-blue-main rounded-full blur-[130px] animate-patrol-blue pointer-events-none z-0">
+        </div>
+        <div
+            class="absolute bottom-1/4 right-[-10%] w-[800px] h-[600px] bg-red-900 rounded-full blur-[130px] animate-patrol-red pointer-events-none z-0">
+        </div>
+
+        <!-- TEXTURA NOISE -->
+        <div class="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+
+            <!-- CABECERA -->
+            <div class="max-w-4xl mx-auto mb-20">
+                <span class="text-brand-alert font-bold text-xs uppercase tracking-[0.4em] block mb-6">Urgencia
+                    Real</span>
+                <h2
+                    class="font-display text-4xl md:text-6xl font-bold text-white leading-tight uppercase tracking-tighter">
+                    Por qué ahora
+                </h2>
+            </div>
+
+            <!-- NARRATIVA DE IMPACTO (SIN MODIFICAR REDACCIÓN) -->
+            <div class="max-w-3xl mx-auto space-y-12 mb-24">
+                <p class="text-2xl md:text-4xl text-white/90 leading-tight font-medium">
+                    Mientras lees esto, <span class="text-brand-alert font-bold">tus hijos están conversando con
+                        IA</span>
+                </p>
+
+                <!-- IMPACTO VISUAL: HOY -->
+                <p
+                    class="font-display text-7xl md:text-9xl font-black text-brand-alert tracking-tighter uppercase italic drop-shadow-[0_0_35px_rgba(255,140,0,0.3)]">
+                    Hoy.
+                </p>
+
+                <p class="text-xl md:text-2xl text-white/70 leading-relaxed italic max-w-2xl mx-auto">
+                    Y cada conversación está formando cómo validan emociones, toman decisiones, qué esperan de las
+                    relaciones.
+                </p>
+
+                <div class="inline-block py-3 px-8 border-y border-white/10">
+                    <p class="text-xl md:text-2xl font-display font-bold text-brand-alert uppercase tracking-[0.3em]">
+                        El uso ya está ocurriendo.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="text-brand-purple mb-4">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M2.166 4.999A11.954 11.954 0 0010 1.944a11.954 11.954 0 007.834 3.055 1.158 1.158 0 01.82 1.962 11.335 11.335 0 01-7.669 3.027 11.335 11.335 0 01-7.669-3.027 1.158 1.158 0 01.82-1.962zM10 12a3 3 0 100-6 3 3 0 000 6z"
-                                clip-rule="evenodd" />
+            </div>
+
+            <!-- EL DILEMA: CAJA DE CONSOLA TÉCNICA -->
+            <div class="max-w-4xl mx-auto space-y-10 mb-24">
+                <p class="text-white text-lg md:text-xl uppercase tracking-[0.2em] font-bold">La pregunta no es
+                    <span class="text-brand-danger">"¿debería preocuparme?"</span>
+                </p>
+
+                <div
+                    class="bg-[#0A1229] border-2 border-brand-alert/40 p-10 md:p-16 rounded-[3rem] shadow-[0_0_60px_rgba(255,140,0,0.15)] relative overflow-hidden group">
+                    <!-- Sparkle SVG original para coherencia -->
+                    <div class="absolute -top-4 -right-4 w-16 h-16 opacity-20 animate-twinkle">
+                        <svg viewBox="0 0 40.6 49.1" fill="#FF8C00">
                             <path
-                                d="M10 14a8.962 8.962 0 01-8.74-6.779A11.332 11.332 0 0010 10.138a11.332 11.332 0 008.74-2.917A8.962 8.962 0 0110 14z" />
+                                d="M8.3,15.9c0,.4,0,1.8.4,2,1.1.5.9-1.4,1-1.9.2-1.3.5-3,1.2-4.1,1.2-2,4.7-2.1,6.8-2.5,1.3-1.2-1.2-1.1-1.9-1.2-3.8-.7-5.1-1.2-5.9-5.2-.2-.8-.2-1.9-.3-2.6s-.8-.7-1-.1c-.3,1.9-.4,4.1-1.4,5.8S2.3,8.2.3,8.5c-.5.2-.5.8,0,1,1.8.3,5.1.5,6.4,1.9.8.9,1.4,3.3,1.6,4.5Z" />
                         </svg>
                     </div>
-                    <h4 class="font-bold mb-2">Acceso Portal SAFE</h4>
-                    <p class="text-sm opacity-80">Acceso gratuito por 1 año al portal (Seguridad y Acciones para
-                        Familias Enlazadas).</p>
+
+                    <p class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white lg:leading-relaxed">
+                        La pregunta es: <br class="hidden md:block">
+                        <span class="text-brand-alert  underline underline-offset-[12px] decoration-1 animate-pulse ">
+                            ¿Quién está poniendo el marco: yo o el algoritmo?
+                        </span>
+                    </p>
                 </div>
             </div>
 
-            <div id="precio" class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-brand-lavender">
-                <div class="bg-brand-blue-deep p-12 text-white text-center">
-                    <h3 class="font-display text-2xl uppercase tracking-widest mb-4">Inversión</h3>
-                    <p class="text-6xl font-display font-bold mb-2">$500 USD</p>
-                    <p class="text-brand-lavender font-bold uppercase tracking-tighter italic">Cupos limitados</p>
-                </div>
-                <div class="p-12 text-center">
-                    <ul class="text-left max-w-md mx-auto space-y-4 mb-10">
-                        <li class="flex items-center gap-3">✓ <span>Materiales descargables completos</span></li>
-                        <li class="flex items-center gap-3">✓ <span>Protocolo Human First</span></li>
-                        <li class="flex items-center gap-3">✓ <span>Plantilla del Contrato Familiar de IA</span>
-                        </li>
-                        <li class="flex items-center gap-3">✓ <span>Comunidad de padres activa</span></li>
-                    </ul>
-                    <a href="#"
-                        class="inline-block w-full bg-brand-blue-action hover:bg-brand-blue-deep text-white font-bold text-2xl py-6 rounded-2xl shadow-xl transition-all">
-                        RESERVA TU LUGAR AHORA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- SECCIÓN 10: PARA QUIÉN ES -->
-    <section class="py-24 bg-white px-6">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-16 text-center uppercase">¿Es esto
-                para
-                ti?</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="border-2 border-brand-success/90 p-10 rounded-3xl">
-                    <h3 class="font-display text-2xl font-bold text-brand-success mb-6 uppercase">Este curso es para
-                        ti
-                        si:</h3>
-                    <ul class="space-y-4 text-lg">
-                        <li class="flex items-start gap-3">✓ <span>Tienes hijos en primaria o secundaria que ya usan
-                                (o
-                                pronto usarán) IA</span></li>
-                        <li class="flex items-start gap-3">✓ <span>Te describes como "bien intencionado pero
-                                desbordado"</span></li>
-                        <li class="flex items-start gap-3">✓ <span>Quieres decisiones conscientes, no
-                                reactivas</span>
-                        </li>
-                        <li class="flex items-start gap-3">✓ <span>Buscas marcos claros, no prohibiciones
-                                absolutas</span></li>
-                        <li class="flex items-start gap-3">✓ <span>Prefieres lenguaje adulto sin alarmismo</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="border-2 border-brand-danger/30 p-10 rounded-3xl opacity-60">
-                    <h3 class="font-display text-2xl font-bold text-brand-danger mb-6 uppercase">NO es para ti si:
-                    </h3>
-                    <ul class="space-y-4 text-lg">
-                        <li class="flex items-start gap-3">❌ <span>Crees que con reglas vagas es suficiente</span>
-                        </li>
-                        <li class="flex items-start gap-3">❌ <span>Buscas soluciones mágicas sin
-                                implementación</span>
-                        </li>
-                        <li class="flex items-start gap-3">❌ <span>Prefieres ignorar el tema hasta que "algo malo
-                                pase"</span></li>
-                    </ul>
+            <!-- CALLOUT DE INICIO Y CUPOS -->
+            <div class="max-w-2xl mx-auto space-y-8">
+                <p class="text-2xl md:text-3xl text-white font-bold leading-tight">
+                    Este curso empieza la semana después de Semana Santa.
+                </p>
+
+                <!-- Píldora de Urgencia Final con Shake -->
+                <div
+                    class="inline-flex items-center gap-4 bg-brand-danger/10 border border-brand-danger/30 px-10 py-4 rounded-full shadow-lg animate-urgency">
+                    <span class="relative flex h-3 w-3">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-danger opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-danger"></span>
+                    </span>
+                    <span class="text-base md:text-lg font-bold uppercase tracking-[0.3em] text-brand-danger">Los cupos
+                        son limitados</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SECCIÓN 11: GARANTÍA -->
-    <section class="py-24 bg-brand-blue-deep text-white px-6 text-center">
-        <div class="container mx-auto max-w-3xl">
-            <div
-                class="w-24 h-24 bg-brand-lavender text-brand-blue-deep rounded-full flex items-center justify-center mx-auto mb-8">
-                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                </svg>
-            </div>
-            <h2 class="font-display text-4xl font-bold mb-6 uppercase">Nuestra promesa:</h2>
-            <p class="text-2xl mb-10">Si completas las 7 sesiones y aplicas las herramientas, <strong>saldrás con
-                    criterio claro.</strong></p>
-            <div class="bg-white/10 p-8 rounded-2xl mb-10 text-left">
-                <ul class="grid md:grid-cols-2 gap-4">
-                    <li class="flex items-center gap-2">✓ Un marco que te permite decidir</li>
-                    <li class="flex items-center gap-2">✓ Lenguaje para hablar con tus hijos</li>
-                    <li class="flex items-center gap-2">✓ Protocolos que implementas mañana</li>
-                    <li class="flex items-center gap-2">✓ La sensación de autoridad tranquila</li>
-                </ul>
-            </div>
-            <p class="text-xl italic opacity-80">Si sientes que no obtuviste esto, te devolvemos el 100% de tu
-                inversión. Sin preguntas incómodas.</p>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 12: FAQ -->
-    <section id="faq" class="py-24 bg-white px-6" x-data="{ active: null }">
-        <div class="container mx-auto max-w-3xl">
-            <h2 class="font-display text-4xl font-bold text-brand-blue-deep mb-12 text-center">FAQ</h2>
-
-            <div class="space-y-4">
-                <!-- FAQ Item -->
-                <div class="border border-gray-200 rounded-2xl overflow-hidden">
-                    <button @click="active = (active === 1 ? null : 1)"
-                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
-                        <span>"¿No puedo buscar esto en internet?"</span>
-                        <span class="text-brand-purple" x-text="active === 1 ? '-' : '+'"></span>
-                    </button>
-                    <div x-show="active === 1" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
-                        <p>Claro. Pero encontrarás 1,000 opiniones contradictorias. La mitad te dirá que la IA es el
-                            apocalipsis. La otra que eres un dinosaurio.</p>
-                        <p class="mt-2 font-bold">Lo que no encontrarás: Un marco que integre psicología +
-                            tecnología +
-                            crianza, probado con familias reales.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-2xl overflow-hidden">
-                    <button @click="active = (active === 2 ? null : 2)"
-                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
-                        <span>"¿Es muy técnico?"</span>
-                        <span class="text-brand-purple" x-text="active === 2 ? '-' : '+'"></span>
-                    </button>
-                    <div x-show="active === 2" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
-                        <p>No. Este curso es para padres, no para ingenieros. Si puedes usar WhatsApp, puedes
-                            entender
-                            este curso.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-2xl overflow-hidden">
-                    <button @click="active = (active === 3 ? null : 3)"
-                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
-                        <span>"¿Y si mis hijos son muy pequeños?"</span>
-                        <span class="text-brand-purple" x-text="active === 3 ? '-' : '+'"></span>
-                    </button>
-                    <div x-show="active === 3" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
-                        <p>Mejor. Este curso te da ventaja: establecerás marcos ANTES de que los hábitos
-                            problemáticos
-                            se formen. Es más fácil prevenir que corregir.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-2xl overflow-hidden">
-                    <button @click="active = (active === 4 ? null : 4)"
-                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
-                        <span>"¿Qué pasa si no puedo asistir en vivo?"</span>
-                        <span class="text-brand-purple" x-text="active === 4 ? '-' : '+'"></span>
-                    </button>
-                    <div x-show="active === 4" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
-                        <p>Todas las sesiones quedan grabadas. Pero recomendamos asistir en vivo: ahí puedes hacer
-                            preguntas específicas sobre TU situación familiar.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-2xl overflow-hidden">
-                    <button @click="active = (active === 5 ? null : 5)"
-                        class="w-full flex items-center justify-between p-6 text-left font-bold text-brand-blue-deep hover:bg-brand-gray-light transition-all">
-                        <span>"¿Esto me va a dar más trabajo?"</span>
-                        <span class="text-brand-purple" x-text="active === 5 ? '-' : '+'"></span>
-                    </button>
-                    <div x-show="active === 5" class="p-6 bg-brand-gray-light/50 border-t border-gray-200">
-                        <p>Al principio, sí: necesitas implementar protocolos. Pero la alternativa es más trabajo:
-                            conversaciones interminables sin criterio, ansiedad constante, sentir que improvisas
-                            cada
-                            decisión.</p>
-                        <p class="mt-2 font-bold">Este curso convierte ambigüedad en claridad. Y la claridad reduce
-                            el
-                            trabajo emocional.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 13: URGENCIA REAL -->
-    <section class="py-24 bg-brand-gray-main text-white px-6">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="font-display text-4xl font-bold mb-8 uppercase tracking-widest text-brand-lavender">Por qué
-                ahora
-            </h2>
-            <div class="space-y-6 text-2xl">
-                <p>Mientras lees esto, tus hijos están conversando con IA.</p>
-                <p class="font-bold text-brand-lavender text-4xl">Hoy.</p>
-                <p class="opacity-80">Y cada conversación está formando cómo validan emociones, toman decisiones,
-                    qué
-                    esperan de las relaciones.</p>
-                <p class="font-bold">El uso ya está ocurriendo.</p>
-                <p class="text-brand-blue-action text-3xl font-display uppercase font-bold">La pregunta no es
-                    "¿debería
-                    preocuparme?"</p>
-                <p class="text-4xl font-display font-extrabold">La pregunta es: "¿Quién está poniendo el marco: yo o
-                    el
-                    algoritmo?"</p>
-            </div>
-
-            <div class="mt-16 inline-block bg-white/5 border border-white/20 p-8 rounded-3xl">
-                <p class="text-2xl font-bold mb-2">Este curso empieza la semana después de Semana Santa.</p>
-                <p class="text-brand-danger text-xl font-bold uppercase tracking-tighter italic">Los cupos son
-                    limitados.</p>
-            </div>
         </div>
     </section>
 
@@ -2032,7 +2477,7 @@
                 <div class="pt-8">
                     <p class="text-xl font-bold text-brand-blue-deep uppercase tracking-widest">Inversión: $500 USD
                     </p>
-                    <p class="text-brand-gray-main opacity-70">Inicio: Semana después de Semana Santa 2025</p>
+                    <p class="text-brand-gray-main opacity-70">Inicio: Semana después de Semana Santa 2026</p>
                     <p class="text-brand-gray-main opacity-70">Martes y Jueves | 7:00 PM (Hora del Centro de México)
                     </p>
                 </div>
