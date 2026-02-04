@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- ================================================= -->
     <!-- 1. SEO & METADATOS FUNDAMENTALES (SGE OPTIMIZED)  -->
@@ -108,14 +109,44 @@
     <link rel="manifest" href="assets/site.webmanifest">
     <!-- OPTIMIZACIÓN DE CARGA CRÍTICA -->
     <link rel="preload" as="video" href="assets/ia-para-papas_1.mp4" type="video/mp4">
-    <link rel="preload" as="image" href="assets/ia-para-papas-cover-16-9.png">
-    <link rel="preload"
-        href="https://fonts.gstatic.com/s/sairasemicondensed/v12/m8JWjf6P4MV1FtX27a3pPu5X7l_S_Y0_uVfG.woff2" as="font"
-        type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="assets/ia-para-papas-cover-16-9.webp">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Saira:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- CLARITY -->
+    <!-- ARMADURA DE MEDICIÓN: GA4 (G-1YP4QPSDMT) + CLARITY (vbuievs0tt) -->
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YP4QPSDMT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        // Configuración base con moneda en USD para reportes de ingresos
+        gtag('config', 'G-1YP4QPSDMT', {
+            'currency': 'USD',
+            'page_title': 'Landing IA para Papás'
+        });
+
+        // RASTREO DE CONVERSIÓN: Captura el valor de $500 al iniciar el pago
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('a[href*="checkout.gnius.club"]').forEach(button => {
+                button.addEventListener('click', function () {
+                    gtag('event', 'begin_checkout', {
+                        'currency': 'USD',
+                        'value': 500.00,
+                        'items': [{
+                            'item_name': 'Curso Live IA para Papás',
+                            'price': 500.00
+                        }]
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -296,7 +327,7 @@
             <div class="flex items-center justify-between h-20">
                 <!-- LOGO -->
                 <div class="flex-shrink-0">
-                    <img src="assets/ia-para-papas-logo-blanco.png" alt="IA para Papás"
+                    <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás"
                         class="h-16 w-auto drop-shadow-md">
                 </div>
 
@@ -310,7 +341,7 @@
                         class="text-[12px] font-bold uppercase tracking-widest hover:text-brand-lavender transition-all opacity-90">Método</a>
                     <a href="#programa"
                         class="text-[12px] font-bold uppercase tracking-widest hover:text-brand-lavender transition-all opacity-90">Programa</a>
-                    <a href="#inversion"
+                    <a href="#precio"
                         class="text-[12px] font-bold uppercase tracking-widest hover:text-brand-lavender transition-all opacity-90">Inversión</a>
                 </div>
 
@@ -355,7 +386,7 @@
                     Método</a>
                 <a @click="open = false" href="#programa"
                     class="text-3xl font-display font-bold uppercase tracking-tighter text-brand-purple hover:text-brand-purple transition-colors">Programa</a>
-                <a @click="open = false" href="#inversion"
+                <a @click="open = false" href="#precio"
                     class="text-3xl font-display font-bold uppercase tracking-tighter text-brand-purple hover:text-brand-purple transition-colors">Inversión</a>
 
                 <div class="pt-8">
@@ -397,7 +428,7 @@
 
                 <!-- 2. IMAGEN MÓVIL/TABLET: 16:9 (Visible en < lg) -->
                 <div class="block lg:hidden my-10 -mx-6 overflow-hidden border-y border-white/5 shadow-2xl">
-                    <img src="assets/adolescente-influenciado-por-ia-horizontal.png"
+                    <img src="assets/adolescente-influenciado-por-ia-horizontal.webp"
                         alt="adolescente influenciado por la IA"
                         class="w-full h-full object-cover grayscale-[20%] brightness-[0.75]">
                 </div>
@@ -458,7 +489,7 @@
             <!-- COLUMNA DERECHA: IMAGEN DESKTOP (5 de 12) -->
             <div class="hidden lg:block lg:col-span-5 relative bg-[#050B1A] border-l border-white/5">
                 <div class="w-full aspect-[2/3] sticky top-0 overflow-hidden">
-                    <img src="assets/adolescente-influenciado-por-ia.png" alt="Adolescente influenciado por IA"
+                    <img src="assets/adolescente-influenciado-por-ia.webp" alt="Adolescente influenciado por IA"
                         class="w-full h-full object-cover grayscale-[15%] brightness-[0.7] contrast-[1.1]">
                     <!-- Overlays para integrar con el fondo -->
                     <div class="absolute inset-0 bg-gradient-to-t from-[#050B1A] via-transparent to-transparent"></div>
@@ -471,7 +502,7 @@
 
     <!-- SECTION 2: EL RIESGO / SIMPLIFICACIÓN EDITORIAL -->
     <!-- MÓDULO A: ¿TE SUENA FAMILIAR? (REDISEÑO PARA TENSIÓN NOCTURNA) -->
-    <section id="riesgo" class="py-24 bg-[#020617] px-6 relative overflow-hidden">
+    <section id="riesgo" class="scroll-mt-24 py-24 bg-[#020617] px-6 relative overflow-hidden">
 
         <!-- Resplandor Naranja sutil en el fondo para generar atmósfera de luz de pantalla -->
         <div class="absolute top-1/2 right-[-10%] w-[500px] h-[500px] bg-[#FF8C00]/5 blur-[120px] pointer-events-none">
@@ -483,7 +514,7 @@
                 <!-- IMAGEN IZQUIERDA: Encuadre dramático -->
                 <div class="w-full lg:w-1/2">
                     <div class="aspect-[2:3] rounded-[3rem] overflow-hidden shadow-2xl border border-white/5 relative">
-                        <img src="assets/mama-preocupada-en-cama.png"
+                        <img src="assets/mama-preocupada-en-cama.webp"
                             alt="Madre confundida ante la utilizacion de la IA" class="w-full h-full object-cover   ">
                         <!-- Overlay de luz de teléfono -->
                         <div
@@ -586,7 +617,7 @@
                 <!-- ELEMENTO 2: IMAGEN (POP-OUT) -->
                 <div class="hidden lg:block shrink-0 relative">
                     <!-- Imagen con tratamiento de sombra dura para dramatismo -->
-                    <img src="assets/papa-sin-marco.png" alt="Padre preocupado"
+                    <img src="assets/papa-sin-marco.webp" alt="Padre preocupado"
                         class="h-[520px] w-auto object-cover  origin-bottom ">
 
                     <!-- Overlay de luz roja sutil desde la base -->
@@ -613,7 +644,7 @@
                     <div
                         class="aspect-square w-full max-w-[300px] overflow-hidden rounded-full shadow-2xl border-4 border-[#020617]">
                         <!-- Imagen con tratamiento dramático -->
-                        <img src="assets/padre-cargando-problema-de-ia-1.jpg" alt="Caos y ansiedad"
+                        <img src="assets/padre-cargando-problema-de-ia-1.webp" alt="Caos y ansiedad"
                             class="w-full h-full object-cover ">
                     </div>
                 </div>
@@ -729,7 +760,7 @@
 
     <!-- SECCIÓN 3: EXPERTO (VIDEO PURO + TRANSICIÓN DE MARCA) -->
     <section id="experto"
-        class="relative overflow-hidden py-12 lg:py-16 bg-gradient-to-b from-[#050B1A] via-brand-blue-deep to-brand-blue-deep">
+        class="scroll-mt-24 relative overflow-hidden py-12 lg:py-16 bg-gradient-to-b from-[#050B1A] via-brand-blue-deep to-brand-blue-deep">
 
         <!-- Sutiles luces de identidad en el fondo -->
         <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-brand-purple/5 blur-[120px] pointer-events-none">
@@ -742,7 +773,7 @@
                 <div class="w-full max-w-[320px] md:max-w-[380px] lg:w-5/12 shrink-0">
                     <!-- Proporción 9:16 bloqueada estrictamente -->
                     <div class="relative aspect-[9/16] bg-black shadow-2xl overflow-hidden rounded-2xl">
-                        <video class="w-full h-full object-cover" poster="assets/rudy-portrait-poster.png" controls
+                        <video class="w-full h-full object-cover" poster="assets/rudy-portrait-poster.webp" controls
                             playsinline>
                             <source src="assets/soy-rudy-laddaga.mp4" type="video/mp4">
                             Tu navegador no soporta video.
@@ -800,7 +831,7 @@
 
 
     <section id="impacto"
-        class="relative overflow-hidden py-24 lg:py-16 bg-gradient-to-b from-brand-blue-deep via-[#0A1229] to-[#020617]">
+        class="scroll-mt-24 relative overflow-hidden py-24 lg:py-16 bg-gradient-to-b from-brand-blue-deep via-[#0A1229] to-[#020617]">
 
         <!-- Elementos decorativos -->
         <div
@@ -897,7 +928,7 @@
                 <div
                     class="relative w-full aspect-video lg:aspect-[21/9] rounded-[1rem] md:rounded-[1rem] overflow-hidden mb-16 shadow-[0_0_60px_rgba(0,0,0,0.7)] ">
                     <!-- Imagen con tratamiento de "Evidencia Cruda" -->
-                    <img src="assets/nina-absorta-celular-mientras-le-habla-su-mama.png"
+                    <img src="assets/nina-absorta-celular-mientras-le-habla-su-mama.webp"
                         alt="Impacto de la dependencia digital en una niña con su atención fija en un smart phone mientras su madre le habla"
                         class="w-full h-full object-cover">
 
@@ -944,7 +975,7 @@
 
     <!-- SECCIÓN 5: LA SOLUCIÓN (TRANSICIÓN OSCURO -> AZUL -> NEGRO) -->
     <section id="metodo"
-        class="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-[#020617] via-brand-blue-deep to-black">
+        class="scroll-mt-24 relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-[#020617] via-brand-blue-deep to-black">
 
         <!-- Textura Noise para mantener el grano cinematográfico -->
         <div class="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
@@ -990,7 +1021,7 @@
                     class="relative w-full aspect-video lg:aspect-[21/9] rounded-[0.5rem] md:rounded-[0.5rem] overflow-hidden shadow-[0_0_60px_rgba(31,111,235,0.2)]">
 
                     <!-- Imagen de contraste: Escena de Autoridad Tranquila -->
-                    <img src="assets/nina-dialogando-con-mama-sobre-el-uso-de-ia.png"
+                    <img src="assets/nina-dialogando-con-mama-sobre-el-uso-de-ia.webp"
                         alt="Madre con autoridad y calma platicando con su hija sobre el uso de la IA"
                         class="w-full h-full object-cover ">
 
@@ -1107,7 +1138,7 @@
 
     <!-- SECCIÓN 6: AUTODIAGNÓSTICO INTERACTIVO (ICONOS REUPERADOS + ESTRUCTURA DE TENSIÓN) -->
     <section id="riesgo-test" x-data="{ totalChecked: 0 }"
-        class="relative pt-24 pb-64 lg:pt-32 lg:pb-80 bg-[#020617] overflow-hidden">
+        class="scroll-mt-24 relative pt-24 pb-64 lg:pt-32 lg:pb-80 bg-[#020617] overflow-hidden">
 
         <!-- Contador Flotante de Riesgo -->
         <div class="fixed bottom-10 right-6 z-[110] pointer-events-none" x-show="totalChecked > 0" x-transition>
@@ -1361,7 +1392,7 @@
 
     <!-- SECCIÓN 7: EL PRODUCTO (TRANSICIÓN CROMÁTICA + IDENTIDAD PURA) -->
     <section id="curso"
-        class="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-brand-blue-deep via-brand-purple-deep to-brand-gray-light">
+        class="scroll-mt-24 relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-brand-blue-deep via-brand-purple-deep to-brand-gray-light">
 
         <!-- Capa de ruido cinematográfico para coherencia -->
         <div class="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none"></div>
@@ -1374,7 +1405,7 @@
                     Live</span>
 
                 <!-- Logo IA para Papás -->
-                <img src="assets/ia-para-papas-logo-blanco.png" alt="IA para Papás Logo"
+                <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás Logo"
                     class="h-24 md:h-36 w-auto mx-auto mb-12 drop-shadow-2xl">
 
                 <h2 class="text-xl md:text-3xl lg:text-3xl leading-relaxed">
@@ -1388,7 +1419,7 @@
                 <div
                     class="relative aspect-video lg:aspect-[16/9] rounded-[1rem] md:rounded-[1rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/20 bg-brand-midnight">
 
-                    <video src="assets/ia-para-papas_1.mp4" poster="assets/ia-para-papas-cover-16-9.png"
+                    <video src="assets/ia-para-papas_1.mp4" poster="assets/ia-para-papas-cover-16-9.webp"
                         class="w-full h-full object-cover brightness-[0.9] contrast-[1.1]" autoplay muted playsinline
                         fetchpriority="high" disableremoteplayback>
                         <source src="assets/ia-para-papas.mp4" type="video/mp4">
@@ -1554,7 +1585,7 @@
 
             <!-- CTA FINAL SECCIÓN 7: COHERENCIA DE MARCA (DEGRADADO) -->
             <div class="text-center">
-                <a href="#inversion"
+                <a href="#precio"
                     class="inline-block bg-gradient-to-r from-brand-purple to-brand-blue-main text-white px-12 py-5 md:px-16 md:py-6 rounded-2xl font-display font-bold text-lg md:text-2xl uppercase tracking-widest shadow-[0_20px_50px_rgba(31,111,235,0.3)] hover:scale-105 transition-all active:scale-95 text-center w-full md:w-auto">
                     RESERVA TU LUGAR
                 </a>
@@ -1564,7 +1595,7 @@
     </section>
 
     <!-- SECCIÓN 8: EL TEMARIO (ARQUITECTURA DE EJE CENTRAL + DESTELLOS SVG) -->
-    <section id="programa" class="relative py-24 lg:py-32 bg-brand-gray-light overflow-hidden font-sans">
+    <section id="programa" class="scroll-mt-24 relative py-24 lg:py-32 bg-brand-gray-light overflow-hidden font-sans">
 
         <!-- Textura Noise sutil -->
         <div class="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none"></div>
@@ -1896,7 +1927,7 @@
 
 
     <!-- SECCIÓN 9: ENTREGABLES (DIAGRAMACIÓN 8+4 + PHOSPHOR ICONS) -->
-    <section id="inversion" class="relative py-12 lg:py-16 bg-brand-gray-light overflow-hidden font-sans">
+    <section id="inversion" class="scroll-mt-24 relative py-12 lg:py-16 bg-brand-gray-light overflow-hidden font-sans">
 
         <div class="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none"></div>
 
@@ -2036,7 +2067,7 @@
     </section>
     <!-- SECCIÓN: PRICING CARD INDEPENDIENTE (TRANSICIÓN VERTICAL DE IDENTIDAD) -->
     <section id="inversion-final"
-        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-gray-light via-brand-purple via-brand-blue-main via-brand-purple to-brand-gray-light overflow-visible">
+        class="scroll-mt-24 relative py-24 lg:py-32 bg-gradient-to-b from-brand-gray-light via-brand-purple via-brand-blue-main via-brand-purple to-brand-gray-light overflow-visible">
 
         <!-- Textura de ruido para coherencia cinematográfica -->
         <div class="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none"></div>
@@ -2045,7 +2076,7 @@
 
             <!-- PRICING CARD: ARQUITECTURA PREMUM (7/12 + 5/12) -->
             <div id="precio"
-                class="max-w-6xl mx-auto bg-white rounded-[3rem] shadow-[0_50px_100px_rgba(31,111,235,0.25)] overflow-hidden border-2 border-white/20 font-sans">
+                class="scroll-mt-24 max-w-6xl mx-auto bg-white rounded-[3rem] shadow-[0_50px_100px_rgba(31,111,235,0.25)] overflow-hidden border-2 border-white/20 font-sans">
                 <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
                     <!-- COLUMNA IZQUIERDA: SÍNTESIS DE VALOR (7 de 12) -->
@@ -2108,7 +2139,7 @@
 
                     <!-- COLUMNA DERECHA: IMAGEN VERTICAL (5 de 12) -->
                     <div class="hidden lg:block lg:col-span-5 relative bg-brand-midnight overflow-hidden">
-                        <img src="assets/madre-guiando-con-criterio-a-sus-hijos.png"
+                        <img src="assets/madre-guiando-con-criterio-a-sus-hijos.webp"
                             alt="Madre guiando con criterio a sus hijos sobre el uso de IA"
                             class="w-full h-full object-cover ">
 
@@ -2151,7 +2182,8 @@
     </section>
 
     <!-- SECCIÓN 10: SEGMENTACIÓN (AMBAS CARDS BLANCAS - CÓDIGO SEMÁNTICO) -->
-    <section id="segmentacion" class="relative py-24 lg:py-32 bg-brand-gray-light overflow-hidden font-sans">
+    <section id="segmentacion"
+        class="scroll-mt-24 relative py-24 lg:py-32 bg-brand-gray-light overflow-hidden font-sans">
 
         <div class="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none text-brand-success"></div>
 
@@ -2252,7 +2284,7 @@
 
     <!-- SECCIÓN 11: GARANTÍA (CONTRATO DE CONFIANZA / CRISTAL + IDENTIDAD) -->
     <section id="garantia"
-        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-gray-light via-brand-blue-action to-brand-blue-main overflow-hidden font-sans">
+        class="scroll-mt-24 relative py-24 lg:py-32 bg-gradient-to-b from-brand-gray-light via-brand-blue-action to-brand-blue-main overflow-hidden font-sans">
 
         <!-- CAPA DE RUIDO Y DESTELLOS -->
         <div class="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
@@ -2347,7 +2379,7 @@
 
     <!-- SECCIÓN 12: FAQ (ACORDIONES EN CÁPSULA + TRANSICIÓN CLARA) -->
     <section id="faq"
-        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-blue-main via-brand-gray-light to-brand-blue-deep overflow-hidden font-sans">
+        class="scroll-mt-24 relative py-24 lg:py-32 bg-gradient-to-b from-brand-blue-main via-brand-gray-light to-brand-blue-deep overflow-hidden font-sans">
 
         <!-- Sparkles de fondo (Pequeños y sutiles) -->
         <div class="absolute top-20 left-10 w-8 h-8 opacity-10 animate-twinkle delay-1">
@@ -2487,7 +2519,7 @@
 
     <!-- SECCIÓN 13: URGENCIA REAL (REDISEÑO DE ALTA TENSIÓN / MIDNIGHT + ALERT) -->
     <section id="urgencia"
-        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-blue-deep via-brand-midnight to-brand-midnight overflow-hidden font-sans">
+        class="scroll-mt-24 relative py-24 lg:py-32 bg-gradient-to-b from-brand-blue-deep via-brand-midnight to-brand-midnight overflow-hidden font-sans">
 
         <!-- EFECTO PATRULLA DISCRETO (Sincronizado con el fondo) -->
         <div
@@ -2587,7 +2619,7 @@
 
     <!-- SECCIÓN 14: CTA FINAL (EL MOMENTO DE DECIDIR) -->
     <section id="cierre"
-        class="relative py-24 lg:py-32 bg-gradient-to-b from-brand-midnight via-brand-purple to-brand-blue-main overflow-hidden font-sans text-white">
+        class="scroll-mt-24 relative py-24 lg:py-32 bg-gradient-to-b from-brand-midnight via-brand-purple to-brand-blue-main overflow-hidden font-sans text-white">
 
         <!-- Sparkles de Identidad Final para coherencia con el árbol -->
         <div class="absolute top-10 right-10 w-16 h-16 opacity-20 animate-twinkle">
@@ -2614,7 +2646,7 @@
                     <!-- Imagen A: Tensión/Preocupación -->
                     <div
                         class="aspect-square w-full mb-10 overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                        <img src="assets/madre-confundida-ante-la-utilizacion-de-la-ia-sq.jpg"
+                        <img src="assets/madre-confundida-ante-la-utilizacion-de-la-ia-sq.webp"
                             alt="Situación de estrés parental" class="w-full h-full object-cover">
                     </div>
 
@@ -2639,7 +2671,7 @@
                     <!-- Imagen B: Resolución/Éxito (Sparkles) -->
                     <div
                         class="aspect-square w-full mb-10 overflow-hidden rounded-[2rem] border-2 border-brand-lavender/30 shadow-[0_0_30px_rgba(139,92,246,0.3)] relative">
-                        <img src="assets/madre-guiando-con-criterio-a-sus-hijos-sq.jpg"
+                        <img src="assets/madre-guiando-con-criterio-a-sus-hijos-sq.webp"
                             alt="Autoridad y criterio con IA" class="w-full h-full object-cover ">
                         <!-- Sparkle SVG titilante extra sobre la imagen -->
                         <div class="absolute bottom-4 right-4 w-12 h-12 opacity-40 animate-twinkle">
@@ -2718,7 +2750,7 @@
                     <!-- 1. CABECERA DEL TICKET: LOGO DE IDENTIDAD -->
                     <div class="flex justify-center mb-12 border-b border-brand-blue-light/50 pb-10">
                         <!-- Ruta al logo morado sobre fondo claro -->
-                        <img src="assets/ia-para-papas-logo-color.png" alt="IA para Papás"
+                        <img src="assets/ia-para-papas-logo-color.webp" alt="IA para Papás"
                             class="h-36 md:h-36 w-auto drop-shadow-sm">
                     </div>
 
@@ -2843,11 +2875,11 @@
 
                     <!-- Branding (Centrado en móvil, alineado derecha en MD) -->
                     <div class="flex flex-col gap-8 items-center md:items-end justify-center">
-                        <img src="assets/ia-para-papas-logo-blanco.png" alt="IA para Papás"
+                        <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás"
                             class="h-16 md:h-20 w-auto drop-shadow-xl">
                         <div class="h-px w-20 bg-white/20"></div>
                         <div class="flex flex-col gap-8 items-center md:items-end justify-center pr-6">
-                            <img src="assets/logo-gnius-club-blanco.png" alt="Gnius Club"
+                            <img src="assets/logo-gnius-club-blanco.webp" alt="Gnius Club"
                                 class="h-12 md:h-12 opacity-80 w-auto  mb-4 sm:mx-auto md:-mx-6">
                             <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-40">
                                 "Pioneros en educación sobre IA desde 2018"
@@ -2893,7 +2925,7 @@
             const currentUTMs = urlParams.toString();
 
             // 2. Buscamos todos los enlaces que van al checkout
-            const checkoutLinks = document.querySelectorAll('a[href*="checkout.gnius.club"]');
+            const checkoutLinks = document.querySelectorAll('a[href*="checkout.gnius.club"], a[href="#precio"]');
 
             checkoutLinks.forEach(link => {
                 let newUrl = new URL(link.href);
