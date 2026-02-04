@@ -1,0 +1,67 @@
+# ----------------------------------------------------------------------
+
+# CONFIGURACIÓN MAESTRA - PAPAS.GNIUS.CLUB
+
+# ----------------------------------------------------------------------
+
+# 1. FORZAR HTTPS (Trust & SEO)
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.\*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. COMPRESIÓN GZIP (Reduce el peso de transferencia del HTML/CSS/JS)
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json
+</IfModule>
+
+# 3. CONTROL DE EXPIRES (Browser Caching)
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 2 days"
+
+# HTML: SIEMPRE FRESCO (Para ver cambios de texto al segundo)
+
+ExpiresByType text/html "access plus 0 seconds"
+
+# ACTIVOS PESADOS: 1 MES (Optimización de carga)
+
+ExpiresByType video/mp4 "access plus 1 month"
+ExpiresByType image/webp "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/svg+xml "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 month"
+
+# FUENTES
+
+ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# 4. HEADERS DE RENDIMIENTO Y SEGURIDAD
+
+<IfModule mod_headers.c>
+    # Prevenir que el navegador adivine el tipo de archivo (Seguridad)
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Cache Control específico para el video MP4
+    <FilesMatch "\.(mp4)$">
+        Header set Cache-Control "max-age=2592000, public, immutable"
+    </FilesMatch>
+    
+    # Limpieza para el HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# 5. LITESPEED SPECIFIC (Acelera el TTFB en Hostinger)
+
+<IfModule LiteSpeed>
+    CacheEnable public /
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^GET|HEAD$
+    RewriteRule .* - [E=Cache-Control:max-age=300]
+</IfModule>
