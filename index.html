@@ -108,7 +108,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="assets/site.webmanifest">
     <!-- OPTIMIZACIÓN DE CARGA CRÍTICA -->
-    <link rel="preload" as="video" href="assets/ia-para-papas_1.mp4" type="video/mp4">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="preload" as="image" href="assets/ia-para-papas-cover-16-9.webp">
 
     <link
@@ -780,14 +780,29 @@
                 <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                     <!-- LADO A: VIDEO 9:16 (Sin bordes, sin mockups) -->
-                    <div class="w-full max-w-[320px] md:max-w-[380px] lg:w-5/12 shrink-0">
-                        <!-- Proporción 9:16 bloqueada estrictamente -->
+                    <!-- <div class="w-full max-w-[320px] md:max-w-[380px] lg:w-5/12 shrink-0">
+                        Proporción 9:16 bloqueada estrictamente 
                         <div class="relative aspect-[9/16] bg-black shadow-2xl overflow-hidden rounded-2xl">
                             <video class="w-full h-full object-cover" poster="assets/rudy-portrait-poster.webp" controls
                                 playsinline>
                                 <source src="assets/soy-rudy-laddaga.mp4" type="video/mp4">
                                 Tu navegador no soporta video.
                             </video>
+                        </div>
+                    </div> -->
+                    <!-- LADO A: VIDEO 9:16 (YOUTUBE SHORTS INTEGRADO) -->
+                    <div class="w-full max-w-[320px] md:max-w-[380px] lg:w-5/12 shrink-0">
+                        <div
+                            class="relative aspect-[9/16] bg-black shadow-2xl overflow-hidden rounded-2xl border border-white/5">
+
+                            <!-- Iframe de YouTube con parámetros de limpieza -->
+                            <iframe class="w-full h-full"
+                                src="https://www.youtube.com/embed/i96iI6pXVM0?rel=0&modestbranding=1&showinfo=0"
+                                title="Rudy Laddaga - Experto en IA" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen loading="lazy">
+                            </iframe>
+
                         </div>
                     </div>
 
@@ -816,7 +831,7 @@
                             </p>
 
                             <p>
-                                En 2018, cuando ChatGPT ni siquiera existía, <strong class="text-brand-blue-main">ya
+                                En 2018, cuando ChatGPT ni siquiera existía, <strong class="text-brand-lavender">ya
                                     estábamos enseñando IA a niños en colegios de México.</strong>
                             </p>
 
