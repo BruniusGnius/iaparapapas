@@ -6,7 +6,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- minimización CSS -->
+    <link rel="stylesheet" href="minified.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- ================================================= -->
@@ -107,14 +109,39 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="assets/site.webmanifest">
+    <!-- PRECONNECT: ACELERACIÓN DE CARGA DE RECURSOS EXTERNOS -->
+
+    <!-- 1. FUENTES (Impacto visual inmediato) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- 2. ICONOS (Se usan en el Nav y Hero) -->
+    <link rel="preconnect" href="https://unpkg.com">
+
+    <!-- 3. GOOGLE TAG MANAGER (Gestiona GA4 y eventos de pago) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- 4. YOUTUBE (Para que el video de Rudy en la Sec 3 no tenga lag) -->
+    <link rel="preconnect" href="https://www.youtube.com">
+
     <!-- OPTIMIZACIÓN DE CARGA CRÍTICA -->
+    <!-- DNS-PREFETCH: Resolución rápida sin carga de conexión -->
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://s.ytimg.com">
+
+
+
+
     <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="preload" as="image" href="assets/ia-para-papas-cover-16-9.webp">
-
     <link
         href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Saira:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <!-- ARMADURA DE MEDICIÓN: GA4 (G-1YP4QPSDMT) + CLARITY (vbuievs0tt) -->
+
+
+    <link rel="dns-prefetch" href="https://checkout.gnius.club">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YP4QPSDMT"></script>
@@ -158,7 +185,7 @@
 
     <!--ICONOS-->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script>
+    <!-- <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -192,8 +219,8 @@
             }
         }
 
-    </script>
-    <style>
+    </script> -->
+    <!-- <style>
         /* FIX DEFINITIVO PARA STICKY NAV */
         html {
             scroll-behavior: smooth;
@@ -314,7 +341,7 @@
             scroll-margin-top: 80px;
             /* La altura exacta de tu Navbar */
         }
-    </style>
+    </style> -->
 </head>
 
 <body class="bg-white text-slate-900 antialiased font-sans font-medium">
@@ -327,7 +354,7 @@
             <div class="flex items-center justify-between h-20">
                 <!-- LOGO -->
                 <div class="flex-shrink-0">
-                    <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás"
+                    <img src="assets/ia-para-papas-logo-blanco.webp" fetchpriority="high" alt="IA para Papás"
                         class="h-16 w-auto drop-shadow-md">
                 </div>
 
@@ -428,7 +455,7 @@
 
                     <!-- 2. IMAGEN MÓVIL/TABLET: 16:9 (Visible en < lg) -->
                     <div class="block lg:hidden my-10 -mx-6 overflow-hidden border-y border-white/5 shadow-2xl">
-                        <img src="assets/adolescente-influenciado-por-ia-horizontal.webp"
+                        <img src="assets/adolescente-influenciado-por-ia-horizontal.webp" fetchpriority="high"
                             alt="adolescente influenciado por la IA"
                             class="w-full h-full object-cover grayscale-[20%] brightness-[0.75]">
                     </div>
@@ -468,7 +495,7 @@
                             class="flex items-center gap-5 bg-white/[0.03] backdrop-blur-md p-5 pr-10 rounded-2xl border border-white/10 shadow-2xl max-w-fit">
                             <div class="relative shrink-0">
                                 <div class="absolute inset-0 bg-brand-purple rounded-full blur-md opacity-20"></div>
-                                <img src="assets/rudy-pensamiento.gif" alt="Rudy Laddaga"
+                                <img src="assets/rudy-pensamiento.gif" alt="Rudy Laddaga" fetchpriority="high"
                                     class="relative w-16 h-16 rounded-full border-2 border-brand-lavender/30 object-cover grayscale-[30%] shadow-lg">
                             </div>
                             <div class="flex flex-col text-left border-l border-white/10 pl-5 text-white/90">
@@ -492,6 +519,7 @@
                 <div class="hidden lg:block lg:col-span-5 relative bg-[#050B1A] border-l border-white/5">
                     <div class="w-full aspect-[2/3] sticky top-0 overflow-hidden">
                         <img src="assets/adolescente-influenciado-por-ia.webp" alt="Adolescente influenciado por IA"
+                            fetchpriority="high"
                             class="w-full h-full object-cover grayscale-[15%] brightness-[0.7] contrast-[1.1]">
                         <!-- Overlays para integrar con el fondo -->
                         <div class="absolute inset-0 bg-gradient-to-t from-[#050B1A] via-transparent to-transparent">
@@ -1177,7 +1205,7 @@
             class="scroll-mt-24 relative pt-24 pb-64 lg:pt-32 lg:pb-80 bg-[#020617] overflow-hidden">
 
             <!-- Contador Flotante de Riesgo -->
-            <div class="fixed bottom-10 right-6 z-[110] pointer-events-none" x-show="totalChecked > 0" x-transition>
+            <div class="fixed bottom-10 left-6 z-[110] pointer-events-none" x-show="totalChecked > 0" x-transition>
                 <div
                     class="bg-[#0A1229]/90 backdrop-blur-md border border-[#FF8C00]/50 p-4 rounded-2xl shadow-2xl text-center animate-urgency pointer-events-auto">
                     <p class="text-[10px] font-bold uppercase tracking-widest text-white/50 mb-1 font-sans">Diagnóstico
@@ -1466,8 +1494,8 @@
                         class="relative aspect-video lg:aspect-[16/9] rounded-[1rem] md:rounded-[1rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/20 bg-brand-midnight">
 
                         <video src="assets/ia-para-papas_1.mp4" poster="assets/ia-para-papas-cover-16-9.webp"
-                            class="w-full h-full object-cover brightness-[0.9] contrast-[1.1]" autoplay muted
-                            playsinline fetchpriority="high" disableremoteplayback>
+                            class="w-full h-full object-cover brightness-[0.9] contrast-[1.1]" fetchpriority="high"
+                            autoplay muted playsinline disableremoteplayback>
                             <source src="assets/ia-para-papas.mp4" type="video/mp4">
                         </video>
 
