@@ -143,22 +143,23 @@
 
     <link rel="dns-prefetch" href="https://checkout.gnius.club">
 
-    <!-- Google Analytics 4 -->
+    <!-- Google Analytics 4 (GA4) - ACTUALIZADO PARA TYPEFORM -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YP4QPSDMT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        // Configuración base con moneda en USD para reportes de ingresos
+        // Configuración base
         gtag('config', 'G-1YP4QPSDMT', {
             'currency': 'USD',
             'page_title': 'Landing IA para Papás'
         });
 
-        // RASTREO DE CONVERSIÓN: Captura el valor de $500 al iniciar el pago
+        // RASTREO DE CONVERSIÓN: Detecta clic hacia Typeform
         document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll('a[href*="checkout.gnius.club"]').forEach(button => {
+            // Buscamos cualquier enlace que vaya a Typeform
+            document.querySelectorAll('a[href*="form.typeform.com"]').forEach(button => {
                 button.addEventListener('click', function () {
                     gtag('event', 'begin_checkout', {
                         'currency': 'USD',
@@ -418,7 +419,7 @@
 
                 <div class="pt-8">
                     <!-- CTA DENTRO DEL MENÚ MÓVIL -->
-                    <a @click="open = false" href="#precio"
+                    <a @click="open = false" href="https://form.typeform.com/to/QHZmNeLi"
                         class="bg-gradient-to-r from-brand-purple to-brand-blue-main text-white px-12 py-5 rounded-2xl font-display font-bold text-xl uppercase tracking-widest shadow-2xl shadow-brand-purple/20">
                         Reservar ahora
                     </a>
@@ -2236,7 +2237,7 @@
                                 <p class="text-xl text-brand-purple font-bold uppercase">USD</p>
                             </div>
 
-                            <a href="#"
+                            <a href="https://form.typeform.com/to/QHZmNeLi"
                                 class="inline-block bg-gradient-to-r from-brand-purple to-brand-blue-main text-white px-12 py-7 rounded-2xl font-display font-extrabold text-2xl uppercase tracking-[0.15em] shadow-[0_20px_50px_rgba(31,111,235,0.3)] hover:scale-[1.02] active:scale-95 transition-all text-center">
                                 RESERVAR MI LUGAR AHORA
                             </a>
@@ -2901,7 +2902,7 @@
 
                             <!-- Bloque Derecho: Acción y Escasez -->
                             <div class="flex flex-col items-center gap-6">
-                                <a href="#precio"
+                                <a href="https://form.typeform.com/to/QHZmNeLi"
                                     class="w-full bg-gradient-to-r from-brand-purple to-brand-blue-main text-white px-8 py-6 rounded-2xl font-display font-bold text-lg md:text-xl uppercase tracking-widest shadow-xl hover:scale-105 transition-all active:scale-95 text-center">
                                     RESERVA TU LUGAR
                                 </a>
@@ -2953,13 +2954,13 @@
                 class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-16 mb-20 text-center lg:text-left">
 
                 <div class="space-y-8 max-w-sm flex flex-col items-center lg:items-start">
-                    <p class="text-white font-display text-2xl md:text-3xl font-bold leading-tight drop-shadow-md">
+                    <!-- <p class="text-white font-display text-2xl md:text-3xl font-bold leading-tight drop-shadow-md">
                         ¿Preguntas antes de <br> inscribirte?
-                    </p>
+                    </p> -->
 
-                    <div class="space-y-4 w-full flex flex-col items-center lg:items-start">
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/522218481116" target="_blank"
+                    <!-- <div class="space-y-4 w-full flex flex-col items-center lg:items-start"> -->
+                    <!-- WhatsApp -->
+                    <!-- <a href="https://wa.me/522218481116" target="_blank"
                             class="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl hover:bg-white/20 transition-all group w-full">
                             <div
                                 class="w-10 h-10 rounded-xl bg-brand-success flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -2971,10 +2972,10 @@
                                     WhatsApp Soporte</p>
                                 <p class="text-lg font-bold tracking-tight">(+52) 221 848 1116</p>
                             </div>
-                        </a>
+                        </a> -->
 
-                        <!-- Email -->
-                        <a href="mailto:info@gnius.club"
+                    <!-- Email -->
+                    <!-- <a href="mailto:info@gnius.club"
                             class="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl hover:bg-white/20 transition-all group w-full">
                             <div
                                 class="w-10 h-10 rounded-xl bg-brand-blue-deep flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -2986,106 +2987,153 @@
                                     Email Oficial</p>
                                 <p class="text-lg font-bold tracking-tight">info@gnius.club</p>
                             </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- BLOQUE 2: ECOSISTEMA Y LOGOS (Centrado en móvil, Grid en MD) -->
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 w-full md:w-auto items-center md:items-start text-center md:text-left">
-                    <!-- Links Ecosistema -->
-                    <div class="space-y-6 flex flex-col items-center md:items-start">
-                        <p class="text-white font-bold text-xs uppercase tracking-[0.3em] opacity-60">Ecosistema Gnius
-                        </p>
-                        <nav class="flex flex-col gap-4">
-                            <a href="https://gnius.club" target="_blank"
-                                class="text-white/80 hover:text-white transition-colors font-bold text-lg underline decoration-white/20 underline-offset-4">gnius.club</a>
-                            <a href="https://digizen.gnius.club" target="_blank"
-                                class="text-white/80 hover:text-white transition-colors font-bold text-lg underline decoration-white/20 underline-offset-4">digizen.gnius.club</a>
-                            <a href="https://alquimistas.gnius.club" target="_blank"
-                                class="text-white/80 hover:text-white transition-colors font-bold text-lg underline decoration-white/20 underline-offset-4">alquimistas.gnius.club</a>
-                        </nav>
-                    </div>
-
-                    <!-- Branding (Centrado en móvil, alineado derecha en MD) -->
-                    <div class="flex flex-col gap-8 items-center md:items-end justify-center">
-                        <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás"
-                            class="h-16 md:h-20 w-auto drop-shadow-xl">
-                        <div class="h-px w-20 bg-white/20"></div>
-                        <div class="flex flex-col gap-8 items-center md:items-end justify-center pr-6">
-                            <img src="assets/logo-gnius-club-blanco.webp" alt="Gnius Club"
-                                class="h-12 md:h-12 opacity-80 w-auto  mb-4 sm:mx-auto md:-mx-6">
-                            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-40">
-                                "Pioneros en educación sobre IA desde 2018"
-                            </p>
-                        </div>
-                    </div>
+                        </a> -->
                 </div>
             </div>
 
-            <!-- BLOQUE 3: LEGAL (Siempre centrado en items, dirección cambia en MD) -->
+            <!-- BLOQUE 2: ECOSISTEMA Y LOGOS (Centrado en móvil, Grid en MD) -->
             <div
-                class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-white/50">
-                <div class="text-center md:text-left">
-                    <p>© 2026 Gnius Club. Todos los derechos reservados.</p>
+                class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 w-full md:w-auto items-center md:items-start text-center md:text-left">
+                <!-- Links Ecosistema -->
+                <div class="space-y-6 flex flex-col items-center md:items-start">
+                    <p class="text-white font-bold text-xs uppercase tracking-[0.3em] opacity-60">Ecosistema Gnius
+                    </p>
+                    <nav class="flex flex-col gap-4">
+                        <a href="https://gnius.club" target="_blank"
+                            class="text-white/80 hover:text-white transition-colors font-bold text-lg underline decoration-white/20 underline-offset-4">gnius.club</a>
+                        <a href="https://digizen.gnius.club" target="_blank"
+                            class="text-white/80 hover:text-white transition-colors font-bold text-lg underline decoration-white/20 underline-offset-4">digizen.gnius.club</a>
+                        <a href="https://alquimistas.gnius.club" target="_blank"
+                            class="text-white/80 hover:text-white transition-colors font-bold text-lg underline decoration-white/20 underline-offset-4">alquimistas.gnius.club</a>
+                    </nav>
                 </div>
 
-                <div class="flex items-center gap-8">
-                    <a href="https://gnius.club/aviso-de-privacidad.html" target="_blank"
-                        class="hover:text-white transition-colors underline decoration-white/20 underline-offset-4">
-                        Aviso de Privacidad
-                    </a>
+                <!-- Branding (Centrado en móvil, alineado derecha en MD) -->
+                <div class="flex flex-col gap-8 items-center md:items-end justify-center">
+                    <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás"
+                        class="h-16 md:h-20 w-auto drop-shadow-xl">
+                    <div class="h-px w-20 bg-white/20"></div>
+                    <div class="flex flex-col gap-8 items-center md:items-end justify-center pr-6">
+                        <img src="assets/logo-gnius-club-blanco.webp" alt="Gnius Club"
+                            class="h-12 md:h-12 opacity-80 w-auto  mb-4 sm:mx-auto md:-mx-6">
+                        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-40">
+                            "Pioneros en educación sobre IA desde 2018"
+                        </p>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- BLOQUE 3: LEGAL (Siempre centrado en items, dirección cambia en MD) -->
+        <div
+            class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-white/50">
+            <div class="text-center md:text-left">
+                <p>© 2026 Gnius Club. Todos los derechos reservados.</p>
+            </div>
+
+            <div class="flex items-center gap-8">
+                <a href="https://gnius.club/aviso-de-privacidad.html" target="_blank"
+                    class="hover:text-white transition-colors underline decoration-white/20 underline-offset-4">
+                    Aviso de Privacidad
+                </a>
+            </div>
+        </div>
 
         </div>
     </footer>
 
-    <!-- WHATSAPP FLOATING SUPPORT -->
-    <div class="fixed bottom-6 right-6 z-[120] group">
-        <a href="https://wa.me/522218481116?text=Hola,%20tengo%20una%20duda%20sobre%20el%20curso%20de%20IA%20para%20Papás"
-            target="_blank"
-            class="flex items-center gap-3 bg-[#0B8700] text-white p-3 md:px-6 md:py-3 rounded-full shadow-2xl hover:scale-105 transition-all">
-            <i class="ph-fill ph-whatsapp-logo text-2xl md:text-3xl"></i>
-            <span class="hidden md:block font-bold text-sm uppercase tracking-widest">¿Dudas? Habla con nosotros</span>
-        </a>
-    </div>
+    <!-- TIDYCAL FLOATING SUPPORT & MODAL SYSTEM -->
+    <div x-data="{ openTidy: false }" class="font-sans">
 
-    <!-- UTMS para botones-->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // 1. Capturamos los parámetros de la URL actual (ej. de un anuncio)
-            const urlParams = new URLSearchParams(window.location.search);
-            const currentUTMs = urlParams.toString();
+        <!-- BOTÓN FLOTANTE (REDISEÑO PÚRPURA + SOMBRA NEGRA) -->
+        <div class="fixed bottom-6 right-6 z-[120] group">
+            <button @click="openTidy = true"
+                class="flex items-center gap-3 bg-brand-purple text-white p-3 md:px-6 md:py-4 rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.8)] hover:bg-brand-purple-deep hover:scale-105 transition-all animate-urgency border border-white/10">
+                <!-- Icono de Calendario -->
+                <i class="ph-fill ph-calendar-check text-2xl md:text-3xl"></i>
+                <span class="hidden md:block font-bold text-sm uppercase tracking-widest">¿Dudas? Agenda una
+                    llamada</span>
+            </button>
+        </div>
 
-            // 2. Buscamos todos los enlaces que van al checkout
-            const checkoutLinks = document.querySelectorAll('a[href*="checkout.gnius.club"], a[href="#precio"]');
+        <!-- PANTALLA MODAL (BACKDROP + CONTENEDOR) -->
+        <div x-show="openTidy" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-200"
+            class="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6" style="display: none;">
 
-            checkoutLinks.forEach(link => {
-                let newUrl = new URL(link.href);
+            <!-- Fondo oscuro con desenfoque (Backdrop) -->
+            <div class="absolute inset-0 bg-brand-midnight/90 backdrop-blur-md" @click="openTidy = false"></div>
 
-                // Si el usuario ya trae UTMs (de FB/Google), los mantenemos
-                if (currentUTMs) {
-                    urlParams.forEach((value, key) => {
-                        newUrl.searchParams.set(key, value);
-                    });
-                } else {
-                    // Si viene directo, ponemos los valores por defecto de la landing
-                    newUrl.searchParams.set('utm_source', 'landing_direct');
-                    newUrl.searchParams.set('utm_campaign', 'lanzamiento_semana_santa');
-                }
+            <!-- Contenedor del TidyCal -->
+            <div
+                class="relative bg-white w-full max-w-4xl h-[90vh] md:h-[85vh] rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col">
 
-                // 3. IDENTIFICADOR ÚNICO DE POSICIÓN (Crucial para CRO)
-                // Buscamos el ID de la sección más cercana para saber cuál botón fue
-                const parentSection = link.closest('section');
-                if (parentSection && parentSection.id) {
-                    newUrl.searchParams.set('utm_content', 'section_' + parentSection.id);
-                }
+                <!-- Cabecera de la Modal -->
+                <div class="flex items-center justify-between px-8 py-4 border-b border-gray-100 bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-brand-success rounded-full animate-pulse"></div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-blue-deep">Sesión
+                            Informativa 1 a 1</span>
+                    </div>
+                    <button @click="openTidy = false"
+                        class="text-brand-blue-deep hover:text-brand-danger transition-colors">
+                        <i class="ph-bold ph-x text-2xl"></i>
+                    </button>
+                </div>
 
-                link.href = newUrl.toString();
+                <!-- BLOQUE DEL EMBED REFORZADO (Dentro de la modal) -->
+                <div class="flex-grow overflow-y-auto bg-white p-2">
+                    <!-- Forzamos un alto mínimo de 600px para que el calendario no se colapse -->
+                    <div class="tidycal-embed min-h-[600px] w-full"
+                        data-path="team/ia-para-papas/informacion-ia-para-papas">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script de TidyCal (Solo se carga una vez) -->
+        <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+
+        <!-- UTMS AUTOMÁTICOS PARA TYPEFORM -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // 1. Capturamos los parámetros de la URL actual (ej. si vienen de un anuncio)
+                const urlParams = new URLSearchParams(window.location.search);
+
+                // 2. Definimos los valores por defecto si no hay anuncio (Tráfico Orgánico)
+                const defaultSource = 'landing_direct';
+                const defaultCampaign = 'lanzamiento_semana_santa';
+
+                // 3. Buscamos TODOS los botones que van a Typeform
+                const typeformLinks = document.querySelectorAll('a[href*="form.typeform.com"]');
+
+                typeformLinks.forEach(link => {
+                    let targetUrl = new URL(link.href);
+
+                    // Lógica de preservación: Si ya traemos datos en la URL, los pasamos. Si no, usamos los defaults.
+                    if (urlParams.toString()) {
+                        urlParams.forEach((value, key) => {
+                            targetUrl.searchParams.set(key, value);
+                        });
+                    } else {
+                        targetUrl.searchParams.set('utm_source', defaultSource);
+                        targetUrl.searchParams.set('utm_campaign', defaultCampaign);
+                    }
+
+                    // 4. Identificador de Sección (Para saber qué botón convirtió)
+                    const parentSection = link.closest('section');
+                    if (parentSection && parentSection.id) {
+                        targetUrl.searchParams.set('utm_content', 'boton_seccion_' + parentSection.id);
+                    } else if (link.closest('nav')) {
+                        targetUrl.searchParams.set('utm_content', 'boton_menu_movil');
+                    }
+
+                    // Actualizamos el enlace final
+                    link.href = targetUrl.toString();
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
