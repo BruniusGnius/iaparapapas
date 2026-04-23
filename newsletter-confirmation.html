@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bienvenido a la Comunidad! | IA para Papás</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Saira:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONOS -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- CONFIGURACIÓN TAILWIND -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue-main': '#1F6FEB',
+                        'brand-blue-deep': '#0F2E6D',
+                        'brand-blue-action': '#2F80ED',
+                        'brand-blue-light': '#E8F1FF',
+                        'brand-midnight': '#050B1A',
+                        'brand-purple': '#8B5CF6',
+                        'brand-purple-deep': '#6D28D9',
+                        'brand-lavender': '#C4B5FD',
+                        'brand-danger': '#EF4444',
+                        'brand-success': '#10B981',
+                        'brand-alert': '#FF8C00',
+                        'brand-gray-main': '#1F2937',
+                        'brand-gray-light': '#F3F4F6',
+                    }
+                },
+                fontFamily: {
+                    'sans': ['Saira', 'sans-serif'],
+                    'display': ['Saira Semi Condensed', 'sans-serif'],
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        .animate-twinkle {
+            animation: twinkle 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-gray-light text-slate-900 antialiased font-sans font-medium flex flex-col min-h-screen">
+
+    <!-- NAVBAR BRANDING -->
+    <nav class="w-full bg-brand-blue-action shadow-md border-b border-white/10 text-white relative z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-center h-20">
+                <img src="assets/ia-para-papas-logo-blanco.webp" alt="IA para Papás logo"
+                    class="h-14 w-auto drop-shadow-md">
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main
+        class="flex-grow relative flex items-center py-20 overflow-hidden bg-gradient-to-b from-brand-blue-light via-white to-brand-gray-light">
+
+        <div class="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <div
+                class="max-w-4xl mx-auto bg-white border-2 border-brand-success/10 rounded-[3rem] shadow-[0_30px_80px_rgba(16,185,129,0.05)] p-10 md:p-16 relative overflow-hidden text-center">
+
+                <!-- Sparkles Amigables -->
+                <div class="absolute top-10 right-10 w-16 h-16 opacity-30 animate-twinkle text-brand-success">
+                    <i class="ph-fill ph-sparkle text-5xl"></i>
+                </div>
+
+                <!-- Icono de Hoja / Comunidad -->
+                <div
+                    class="w-24 h-24 mx-auto bg-brand-success/10 border-4 border-brand-success/20 rounded-full flex items-center justify-center mb-10 shadow-lg">
+                    <i class="ph-fill ph-leaf text-5xl text-brand-success"></i>
+                </div>
+
+                <span
+                    class="text-brand-success font-bold text-[10px] md:text-xs uppercase tracking-[0.4em] block mb-4 italic">Suscripción
+                    Confirmada</span>
+
+                <h1 class="font-display text-4xl md:text-6xl font-bold text-brand-blue-deep leading-tight mb-6">
+                    ¡Gracias por unirte a <span class="text-brand-blue-action italic">nuestra&nbsp;comunidad!</span>
+                </h1>
+
+                <p
+                    class="text-lg md:text-2xl text-brand-gray-main opacity-80 leading-relaxed font-medium max-w-2xl mx-auto mb-12">
+                    Ya eres parte de los padres que reciben <strong class="text-brand-purple-deep">reflexiones y
+                        herramientas </strong> para liderar la era digital desde casa.
+                </p>
+
+                <!-- QUE ESPERAR -->
+                <div class="bg-brand-blue-light/30 border border-brand-blue-light rounded-3xl p-8 mb-12">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                        <div class="flex items-center gap-4 text-left">
+                            <i class="ph-fill ph-check-square text-brand-success text-3xl"></i>
+                            <p class="text-brand-blue-deep font-bold leading-tight">Tips prácticos <br> para tu familia
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 text-left">
+                            <i class="ph-fill ph-check-square text-brand-success text-3xl"></i>
+                            <p class="text-brand-blue-deep font-bold leading-tight">Alertas de <br> nuevas tendencias
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÓN REGRESO -->
+                <a href="https://papas.gnius.club"
+                    class="inline-flex items-center gap-3 bg-brand-blue-action hover:bg-brand-blue-deep text-white px-10 py-5 rounded-2xl font-display font-bold uppercase tracking-widest text-sm transition-all shadow-xl hover:scale-105 active:scale-95">
+                    <i class="ph-bold ph-house"></i> Volver a la página principal
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-10 border-t border-brand-gray-light font-sans text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gray-main opacity-40">
+                © 2026 Gnius Club. Crianza con criterio.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
